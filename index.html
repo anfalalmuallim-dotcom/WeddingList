@@ -3,40 +3,41 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>تخطيط الأفراح 🤍</title>
+<title>فهد وأنفال 🤍</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
 <style>
   :root {
-    --cream: #FAF7F2;
-    --warm-white: #FFF9F4;
-    --blush: #F2D9D9;
-    --rose: #C9848A;
-    --deep-rose: #9B5C62;
-    --gold: #C8A96E;
-    --gold-light: #E8D5A3;
-    --sage: #8BA888;
-    --text-dark: #2C2320;
-    --text-mid: #6B5B57;
-    --text-light: #A8938F;
-    --border: #E8DDD6;
-    --shadow: rgba(155, 92, 98, 0.08);
+    --أبيض-دافئ: #FFF5F7;
+    --وردي-فاتح: #FFE8EE;
+    --وردي: #FFC2BE;
+    --وردي-غامق: #D97F8B;
+    --وردي-عميق: #B85C6E;
+    --أخضر: #ADB680;
+    --بيج: #E0CFC3;
+    --نص-داكن: #3D2430;
+    --نص-متوسط: #7A5060;
+    --نص-فاتح: #B08090;
+    --حدود: #F0D5DC;
+    --ظل: rgba(217,127,139,0.1);
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Tajawal', sans-serif;
-    background: var(--cream);
-    color: var(--text-dark);
+    background: #FFF0F3;
+    color: var(--نص-داكن);
     min-height: 100vh;
     direction: rtl;
+    display: flex;
+    flex-direction: column;
   }
 
-  /* === HEADER === */
+  /* HEADER */
   .site-header {
-    background: var(--warm-white);
-    border-bottom: 1px solid var(--border);
+    background: white;
+    border-bottom: 1px solid var(--حدود);
     padding: 0 2rem;
     display: flex;
     align-items: center;
@@ -45,73 +46,51 @@
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 20px var(--shadow);
+    box-shadow: 0 2px 20px var(--ظل);
   }
 
   .logo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 1.4rem;
-    color: var(--deep-rose);
+    color: var(--وردي-عميق);
     display: flex;
     align-items: center;
     gap: 8px;
   }
 
-  .logo span { font-family: 'Tajawal'; font-style: normal; font-size: 0.85rem; color: var(--text-light); font-weight: 400; }
+  .logo span { font-family: 'Tajawal'; font-style: normal; font-size: 0.85rem; color: var(--نص-فاتح); font-weight: 400; }
 
-  nav { display: flex; gap: 4px; }
+  nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
 
   .nav-btn {
-    padding: 8px 18px;
+    padding: 7px 14px;
     border-radius: 50px;
     border: 1px solid transparent;
     background: none;
     font-family: 'Tajawal';
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
-    color: var(--text-mid);
+    color: var(--نص-متوسط);
     cursor: pointer;
     transition: all 0.2s;
     white-space: nowrap;
   }
 
-  .nav-btn:hover { background: var(--blush); color: var(--deep-rose); }
-  .nav-btn.active {
-    background: var(--deep-rose);
-    color: white;
-    border-color: var(--deep-rose);
-  }
+  .nav-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
+  .nav-btn.active { background: var(--وردي-عميق); color: white; border-color: var(--وردي-عميق); }
 
-  /* === HERO === */
+  /* HERO */
   .hero {
     text-align: center;
     padding: 4rem 2rem 2rem;
-    background: linear-gradient(180deg, var(--warm-white) 0%, var(--cream) 100%);
-    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, white 0%, #FFF0F3 100%);
+    border-bottom: 1px solid var(--حدود);
   }
 
-  .hero-ornament {
-    font-size: 1.5rem;
-    letter-spacing: 12px;
-    color: var(--gold);
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .hero h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    color: var(--text-dark);
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-
-  .hero p {
-    color: var(--text-light);
-    font-size: 1rem;
-    font-weight: 300;
-  }
+  .hero-ornament { font-size: 1.5rem; letter-spacing: 12px; color: var(--وردي); margin-bottom: 1rem; display: block; }
+  .hero h1 { font-size: 2.2rem; font-weight: 700; color: var(--نص-داكن); margin-bottom: 0.5rem; line-height: 1.4; }
+  .hero p { color: var(--نص-فاتح); font-size: 1rem; font-weight: 300; }
 
   .event-cards {
     display: flex;
@@ -121,15 +100,30 @@
     flex-wrap: wrap;
   }
 
+  /* بطاقتين لكل مناسبة */
+  .event-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    min-width: 160px;
+  }
+
+  .event-group-label {
+    text-align: center;
+    font-size: 0.75rem;
+    color: var(--نص-فاتح);
+    font-weight: 500;
+    letter-spacing: 1px;
+  }
+
   .event-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
+    background: white;
+    border: 1px solid var(--حدود);
     border-radius: 16px;
     padding: 1.5rem 2rem;
     cursor: pointer;
     transition: all 0.25s;
     text-align: center;
-    min-width: 160px;
     position: relative;
     overflow: hidden;
   }
@@ -139,32 +133,33 @@
     position: absolute;
     top: 0; right: 0; left: 0;
     height: 3px;
-    background: var(--border);
+    background: var(--حدود);
     transition: background 0.2s;
   }
 
-  .event-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--shadow); }
-
-  .event-card.active { border-color: var(--rose); box-shadow: 0 4px 20px var(--shadow); }
-  .event-card.active::before { background: var(--rose); }
+  .event-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--ظل); }
+  .event-card.active { border-color: var(--وردي-غامق); box-shadow: 0 4px 20px var(--ظل); }
+  .event-card.active::before { background: linear-gradient(90deg, var(--وردي-غامق), var(--وردي)); }
 
   .event-card .card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
-  .event-card .card-title { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); }
-  .event-card .card-subtitle { font-size: 0.8rem; color: var(--text-light); margin-top: 2px; }
+  .event-card .card-title { font-size: 1rem; font-weight: 700; color: var(--نص-داكن); }
+  .event-card .card-subtitle { font-size: 0.75rem; color: var(--نص-فاتح); margin-top: 2px; }
   .event-card .card-count {
     display: inline-block;
     margin-top: 8px;
-    background: var(--blush);
-    color: var(--deep-rose);
-    font-size: 0.75rem;
+    background: var(--وردي-فاتح);
+    color: var(--وردي-عميق);
+    font-size: 0.72rem;
     font-weight: 500;
     padding: 2px 10px;
     border-radius: 20px;
   }
 
-  /* === MAIN CONTENT === */
-  .main-content { display: none; }
+  /* PAGES */
+  .main-content { display: none; flex: 1; }
   .main-content.active { display: block; animation: fadeIn 0.3s ease; }
+  #home-view { flex: 1; }
+  #home-view.hidden { display: none; }
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -177,15 +172,15 @@
     margin: 0 auto;
   }
 
-  .page-title-group h2 { font-size: 1.6rem; font-weight: 700; color: var(--text-dark); }
-  .page-title-group p { font-size: 0.9rem; color: var(--text-light); margin-top: 2px; }
+  .page-title-group h2 { font-size: 1.6rem; font-weight: 700; color: var(--نص-داكن); }
+  .page-title-group p { font-size: 0.9rem; color: var(--نص-فاتح); margin-top: 2px; }
 
-  .add-category-btn {
+  .add-btn {
     display: flex;
     align-items: center;
     gap: 6px;
     padding: 10px 20px;
-    background: var(--deep-rose);
+    background: var(--وردي-عميق);
     color: white;
     border: none;
     border-radius: 50px;
@@ -197,9 +192,37 @@
     white-space: nowrap;
   }
 
-  .add-category-btn:hover { background: var(--rose); transform: translateY(-1px); }
+  .add-btn:hover { background: var(--وردي-غامق); transform: translateY(-1px); }
 
-  /* === CATEGORIES GRID === */
+  /* TABS داخل كل صفحة */
+  .page-tabs {
+    display: flex;
+    gap: 8px;
+    padding: 0 2rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .tab-btn {
+    padding: 8px 20px;
+    border-radius: 50px;
+    border: 1px solid var(--حدود);
+    background: white;
+    font-family: 'Tajawal';
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--نص-متوسط);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .tab-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
+  .tab-btn.active { background: var(--وردي-عميق); color: white; border-color: var(--وردي-عميق); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  /* GRID */
   .categories-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -209,181 +232,179 @@
     margin: 0 auto;
   }
 
-  .category-card {
-    background: var(--warm-white);
-    border: 1px solid var(--border);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
+  /* LINKS GRID */
+  .links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.25rem;
+    padding: 0 2rem 3rem;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
-  .category-card:hover { box-shadow: 0 4px 20px var(--shadow); }
+  .link-section-card {
+    background: white;
+    border: 1px solid var(--حدود);
+    border-radius: 16px;
+    overflow: hidden;
+  }
 
-  .category-header {
+  .link-section-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--border);
-    background: white;
+    border-bottom: 1px solid var(--حدود);
+    background: linear-gradient(135deg, white, #FFF8FA);
   }
 
-  .category-title-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    flex: 1;
-  }
+  .link-section-title-row { display: flex; align-items: center; gap: 8px; flex: 1; }
 
-  .category-emoji { font-size: 1.2rem; }
-
-  .category-name {
+  .link-section-name {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--نص-داكن);
     background: none;
     border: none;
     font-family: 'Tajawal';
-    cursor: pointer;
     flex: 1;
     text-align: right;
     padding: 0;
-  }
-
-  .category-name:focus {
-    outline: none;
-    border-bottom: 1px dashed var(--rose);
-  }
-
-  .cat-actions { display: flex; gap: 4px; }
-
-  .icon-btn {
-    width: 28px; height: 28px;
-    border-radius: 8px;
-    border: none;
-    background: none;
     cursor: pointer;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.85rem;
-    color: var(--text-light);
-    transition: all 0.15s;
   }
 
-  .icon-btn:hover { background: var(--blush); color: var(--deep-rose); }
-  .icon-btn.delete:hover { background: #FDECEA; color: #C0392B; }
+  .link-section-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
 
-  .items-list { padding: 0.5rem; }
+  .link-items { padding: 0.5rem; }
 
-  .item-row {
+  .link-row {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 6px 8px;
+    padding: 8px;
     border-radius: 10px;
-    group: true;
     transition: background 0.15s;
   }
 
-  .item-row:hover { background: var(--cream); }
+  .link-row:hover { background: #FFF5F7; }
 
-  .check-box {
-    width: 18px; height: 18px;
-    border: 1.5px solid var(--border);
-    border-radius: 5px;
-    cursor: pointer;
-    flex-shrink: 0;
+  .link-icon {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--وردي-فاتح);
     display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s;
-    background: white;
-    font-size: 0.7rem;
-    color: transparent;
-  }
-
-  .check-box.checked {
-    background: var(--sage);
-    border-color: var(--sage);
-    color: white;
-  }
-
-  .item-text {
-    flex: 1;
     font-size: 0.9rem;
-    color: var(--text-dark);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    padding: 2px 0;
-    text-align: right;
-    direction: rtl;
+    flex-shrink: 0;
   }
 
-  .item-text:focus { outline: none; border-bottom: 1px dashed var(--gold); }
-  .item-text.done { text-decoration: line-through; color: var(--text-light); }
+  .link-info { flex: 1; min-width: 0; }
 
-  .item-note {
-    font-size: 0.78rem;
-    color: var(--text-light);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    text-align: right;
-    direction: rtl;
-    padding: 1px 0;
+  .link-name-input {
     width: 100%;
-    margin-right: 26px;
-    display: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--نص-داكن);
+    background: none;
+    border: none;
+    font-family: 'Tajawal';
+    text-align: right;
+    padding: 1px 0;
+    direction: rtl;
   }
 
-  .item-note.visible { display: block; }
-  .item-note:focus { outline: none; border-bottom: 1px dashed var(--gold-light); }
+  .link-name-input:focus { outline: none; border-bottom: 1px dashed var(--وردي); }
 
-  .item-delete {
+  .link-url-input {
+    width: 100%;
+    font-size: 0.78rem;
+    color: var(--وردي-عميق);
+    background: none;
+    border: none;
+    font-family: 'Tajawal';
+    text-align: right;
+    padding: 1px 0;
+    direction: ltr;
+    text-align: left;
+  }
+
+  .link-url-input:focus { outline: none; border-bottom: 1px dashed var(--وردي-فاتح); }
+  .link-url-input::placeholder { color: var(--نص-فاتح); direction: rtl; text-align: right; }
+
+  .link-open-btn {
+    width: 26px; height: 26px;
+    border-radius: 7px;
+    border: none;
+    background: var(--وردي-فاتح);
+    color: var(--وردي-عميق);
+    cursor: pointer;
+    font-size: 0.8rem;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+
+  .link-open-btn:hover { background: var(--وردي-عميق); color: white; }
+
+  .link-delete-btn {
     opacity: 0;
     width: 20px; height: 20px;
     border: none;
     background: none;
     cursor: pointer;
-    color: var(--text-light);
+    color: var(--نص-فاتح);
     font-size: 0.8rem;
     transition: all 0.15s;
     flex-shrink: 0;
     border-radius: 4px;
   }
 
-  .item-row:hover .item-delete { opacity: 1; }
-  .item-delete:hover { color: #C0392B; background: #FDECEA; }
+  .link-row:hover .link-delete-btn { opacity: 1; }
+  .link-delete-btn:hover { color: #C0392B; background: #FDECEA; }
 
-  .add-item-row {
+  .add-link-row {
     display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 8px;
+    gap: 6px;
+    padding: 8px;
     margin-top: 2px;
+    align-items: center;
   }
 
-  .add-item-input {
+  .add-link-name {
     flex: 1;
-    border: 1px dashed var(--border);
+    border: 1px dashed var(--حدود);
     border-radius: 8px;
     padding: 6px 10px;
     font-family: 'Tajawal';
-    font-size: 0.88rem;
-    background: var(--cream);
-    color: var(--text-dark);
+    font-size: 0.82rem;
+    background: #FFF8FA;
+    color: var(--نص-داكن);
     text-align: right;
     direction: rtl;
-    transition: border-color 0.2s;
   }
 
-  .add-item-input:focus { outline: none; border-color: var(--rose); background: white; }
-  .add-item-input::placeholder { color: var(--text-light); }
+  .add-link-url {
+    flex: 2;
+    border: 1px dashed var(--حدود);
+    border-radius: 8px;
+    padding: 6px 10px;
+    font-family: 'Tajawal';
+    font-size: 0.82rem;
+    background: #FFF8FA;
+    color: var(--نص-داكن);
+    direction: ltr;
+    text-align: left;
+  }
 
-  .add-item-btn {
+  .add-link-name:focus, .add-link-url:focus { outline: none; border-color: var(--وردي-غامق); background: white; }
+  .add-link-name::placeholder, .add-link-url::placeholder { color: var(--نص-فاتح); }
+
+  .add-link-btn {
     width: 30px; height: 30px;
     border-radius: 8px;
     border: none;
-    background: var(--blush);
-    color: var(--deep-rose);
+    background: var(--وردي-فاتح);
+    color: var(--وردي-عميق);
     cursor: pointer;
     font-size: 1.1rem;
     display: flex; align-items: center; justify-content: center;
@@ -391,177 +412,254 @@
     flex-shrink: 0;
   }
 
-  .add-item-btn:hover { background: var(--deep-rose); color: white; }
+  .add-link-btn:hover { background: var(--وردي-عميق); color: white; }
 
-  /* Progress in category */
-  .category-progress {
+  /* CATEGORY CARD (checklist) */
+  .category-card {
+    background: white;
+    border: 1px solid var(--حدود);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+  }
+
+  .category-card:hover { box-shadow: 0 4px 20px var(--ظل); }
+
+  .category-header {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 8px 1.25rem;
-    border-top: 1px solid var(--border);
+    justify-content: space-between;
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--حدود);
+    background: linear-gradient(135deg, white, #FFF8FA);
   }
 
-  .progress-track {
-    flex: 1;
-    height: 3px;
-    background: var(--border);
-    border-radius: 2px;
-    overflow: hidden;
+  .category-title-row { display: flex; align-items: center; gap: 8px; flex: 1; }
+  .category-emoji { font-size: 1.2rem; }
+
+  .category-name {
+    font-size: 1rem; font-weight: 700; color: var(--نص-داكن);
+    background: none; border: none; font-family: 'Tajawal';
+    cursor: pointer; flex: 1; text-align: right; padding: 0;
   }
 
-  .progress-fill {
-    height: 100%;
-    background: var(--sage);
-    border-radius: 2px;
-    transition: width 0.4s ease;
+  .category-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
+  .cat-actions { display: flex; gap: 4px; }
+
+  .icon-btn {
+    width: 28px; height: 28px; border-radius: 8px; border: none;
+    background: none; cursor: pointer; display: flex; align-items: center;
+    justify-content: center; font-size: 0.85rem; color: var(--نص-فاتح); transition: all 0.15s;
   }
 
-  .progress-text { font-size: 0.75rem; color: var(--text-light); white-space: nowrap; }
+  .icon-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
+  .icon-btn.delete:hover { background: #FDECEA; color: #C0392B; }
 
-  /* === MODAL === */
-  .modal-overlay {
-    position: fixed; inset: 0;
-    background: rgba(44,35,32,0.4);
+  .items-list { padding: 0.5rem; }
+
+  .item-row {
+    display: flex; align-items: center; gap: 8px; padding: 6px 8px;
+    border-radius: 10px; transition: background 0.15s;
+  }
+
+  .item-row:hover { background: #FFF5F7; }
+
+  .check-box {
+    width: 18px; height: 18px; border: 1.5px solid var(--حدود);
+    border-radius: 5px; cursor: pointer; flex-shrink: 0;
     display: flex; align-items: center; justify-content: center;
-    z-index: 200;
-    opacity: 0; pointer-events: none;
-    transition: opacity 0.2s;
-    backdrop-filter: blur(3px);
+    transition: all 0.15s; background: white; font-size: 0.7rem; color: transparent;
+  }
+
+  .check-box.checked { background: var(--أخضر); border-color: var(--أخضر); color: white; }
+
+  .item-text {
+    flex: 1; font-size: 0.9rem; color: var(--نص-داكن); background: none;
+    border: none; font-family: 'Tajawal'; padding: 2px 0; text-align: right; direction: rtl;
+  }
+
+  .item-text:focus { outline: none; border-bottom: 1px dashed var(--وردي); }
+  .item-text.done { text-decoration: line-through; color: var(--نص-فاتح); }
+
+  .item-note {
+    font-size: 0.78rem; color: var(--نص-فاتح); background: none; border: none;
+    font-family: 'Tajawal'; text-align: right; direction: rtl; padding: 1px 0;
+    width: 100%; margin-right: 26px; display: none;
+  }
+
+  .item-note.visible { display: block; }
+  .item-note:focus { outline: none; border-bottom: 1px dashed var(--بيج); }
+
+  .item-delete {
+    opacity: 0; width: 20px; height: 20px; border: none; background: none;
+    cursor: pointer; color: var(--نص-فاتح); font-size: 0.8rem;
+    transition: all 0.15s; flex-shrink: 0; border-radius: 4px;
+  }
+
+  .item-row:hover .item-delete { opacity: 1; }
+  .item-delete:hover { color: #C0392B; background: #FDECEA; }
+
+  .add-item-row { display: flex; align-items: center; gap: 8px; padding: 6px 8px; margin-top: 2px; }
+
+  .add-item-input {
+    flex: 1; border: 1px dashed var(--حدود); border-radius: 8px; padding: 6px 10px;
+    font-family: 'Tajawal'; font-size: 0.88rem; background: #FFF8FA;
+    color: var(--نص-داكن); text-align: right; direction: rtl; transition: border-color 0.2s;
+  }
+
+  .add-item-input:focus { outline: none; border-color: var(--وردي-غامق); background: white; }
+  .add-item-input::placeholder { color: var(--نص-فاتح); }
+
+  .add-item-btn {
+    width: 30px; height: 30px; border-radius: 8px; border: none;
+    background: var(--وردي-فاتح); color: var(--وردي-عميق); cursor: pointer;
+    font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
+    transition: all 0.15s; flex-shrink: 0;
+  }
+
+  .add-item-btn:hover { background: var(--وردي-عميق); color: white; }
+
+  .category-progress {
+    display: flex; align-items: center; gap: 8px; padding: 8px 1.25rem; border-top: 1px solid var(--حدود);
+  }
+
+  .progress-track { flex: 1; height: 4px; background: var(--وردي-فاتح); border-radius: 2px; overflow: hidden; }
+  .progress-fill { height: 100%; background: linear-gradient(90deg, var(--أخضر), #8FAD60); border-radius: 2px; transition: width 0.4s ease; }
+  .progress-text { font-size: 0.75rem; color: var(--نص-فاتح); white-space: nowrap; }
+
+  /* MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(61,36,48,0.35);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 200; opacity: 0; pointer-events: none;
+    transition: opacity 0.2s; backdrop-filter: blur(4px);
   }
 
   .modal-overlay.open { opacity: 1; pointer-events: all; }
 
   .modal {
-    background: var(--warm-white);
-    border-radius: 20px;
-    padding: 2rem;
-    width: 90%;
-    max-width: 420px;
-    transform: translateY(20px);
-    transition: transform 0.2s;
-    direction: rtl;
+    background: white; border-radius: 20px; padding: 2rem; width: 90%; max-width: 420px;
+    transform: translateY(20px); transition: transform 0.2s; direction: rtl; border: 1px solid var(--حدود);
   }
 
   .modal-overlay.open .modal { transform: translateY(0); }
+  .modal h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--نص-داكن); }
+  .modal label { display: block; font-size: 0.85rem; color: var(--نص-متوسط); margin-bottom: 4px; margin-top: 12px; }
 
-  .modal h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-dark); }
-
-  .modal label { display: block; font-size: 0.85rem; color: var(--text-mid); margin-bottom: 4px; margin-top: 12px; }
-
-  .modal input, .modal select {
-    width: 100%;
-    padding: 10px 12px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    font-family: 'Tajawal';
-    font-size: 0.95rem;
-    background: white;
-    color: var(--text-dark);
-    text-align: right;
-    direction: rtl;
+  .modal input {
+    width: 100%; padding: 10px 12px; border: 1px solid var(--حدود);
+    border-radius: 10px; font-family: 'Tajawal'; font-size: 0.95rem;
+    background: white; color: var(--نص-داكن); text-align: right; direction: rtl;
   }
 
-  .modal input:focus, .modal select:focus { outline: none; border-color: var(--rose); }
+  .modal input:focus { outline: none; border-color: var(--وردي-غامق); }
 
-  .emoji-grid {
-    display: grid;
-    grid-template-columns: repeat(8, 1fr);
-    gap: 6px;
-    margin-top: 8px;
-  }
+  .emoji-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-top: 8px; }
 
   .emoji-opt {
-    padding: 6px;
-    border-radius: 8px;
-    border: 1px solid var(--border);
-    cursor: pointer;
-    text-align: center;
-    font-size: 1.1rem;
-    background: white;
-    transition: all 0.15s;
+    padding: 6px; border-radius: 8px; border: 1px solid var(--حدود);
+    cursor: pointer; text-align: center; font-size: 1.1rem; background: white; transition: all 0.15s;
   }
 
-  .emoji-opt:hover, .emoji-opt.selected { background: var(--blush); border-color: var(--rose); }
+  .emoji-opt:hover, .emoji-opt.selected { background: var(--وردي-فاتح); border-color: var(--وردي-غامق); }
 
-  .modal-actions {
-    display: flex;
-    gap: 8px;
-    margin-top: 1.5rem;
-    justify-content: flex-end;
-  }
+  .modal-actions { display: flex; gap: 8px; margin-top: 1.5rem; justify-content: flex-end; }
 
   .btn-primary {
-    padding: 10px 24px;
-    background: var(--deep-rose);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-family: 'Tajawal';
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
+    padding: 10px 24px; background: var(--وردي-عميق); color: white; border: none;
+    border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s;
   }
 
-  .btn-primary:hover { background: var(--rose); }
+  .btn-primary:hover { background: var(--وردي-غامق); }
 
   .btn-secondary {
-    padding: 10px 18px;
-    background: none;
-    color: var(--text-mid);
-    border: 1px solid var(--border);
-    border-radius: 50px;
-    font-family: 'Tajawal';
-    font-size: 0.9rem;
-    cursor: pointer;
-    transition: all 0.2s;
+    padding: 10px 18px; background: none; color: var(--نص-متوسط);
+    border: 1px solid var(--حدود); border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; cursor: pointer; transition: all 0.2s;
   }
 
-  .btn-secondary:hover { background: var(--cream); }
+  .btn-secondary:hover { background: var(--وردي-فاتح); }
 
-  /* Empty state */
-  .empty-state {
-    text-align: center;
-    padding: 3rem 2rem;
-    color: var(--text-light);
-    grid-column: 1 / -1;
-  }
-
+  .empty-state { text-align: center; padding: 3rem 2rem; color: var(--نص-فاتح); grid-column: 1 / -1; }
   .empty-state .empty-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
   .empty-state p { font-size: 0.95rem; }
 
-  /* === HOMEPAGE === */
-  #home-view { display: block; }
-  #home-view.hidden { display: none; }
+  /* FOOTER */
+  footer {
+    background: white;
+    border-top: 1px solid var(--حدود);
+    padding: 2.5rem 2rem;
+    text-align: center;
+    margin-top: auto;
+  }
 
-  /* scroll */
+  .footer-names {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.8rem;
+    color: var(--وردي-عميق);
+    margin-bottom: 0.4rem;
+    letter-spacing: 2px;
+  }
+
+  .footer-heart {
+    font-size: 1rem;
+    color: var(--وردي);
+    margin: 0 10px;
+  }
+
+  .footer-date {
+    font-size: 0.85rem;
+    color: var(--نص-فاتح);
+    font-weight: 300;
+    margin-bottom: 1rem;
+  }
+
+  .footer-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 1rem;
+  }
+
+  .footer-divider-line { width: 60px; height: 1px; background: var(--حدود); }
+  .footer-divider-icon { color: var(--وردي); font-size: 0.9rem; }
+
+  .footer-quote {
+    font-size: 0.88rem;
+    color: var(--نص-متوسط);
+    font-weight: 300;
+    font-style: italic;
+  }
+
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
-  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  ::-webkit-scrollbar-thumb { background: var(--وردي-فاتح); border-radius: 2px; }
 
   @media (max-width: 600px) {
-    .site-header { padding: 0 1rem; }
-    .nav-btn { padding: 7px 12px; font-size: 0.82rem; }
+    .site-header { padding: 0 1rem; height: auto; padding: 0.75rem 1rem; flex-wrap: wrap; gap: 8px; }
+    nav { gap: 4px; }
+    .nav-btn { padding: 5px 10px; font-size: 0.78rem; }
     .hero h1 { font-size: 1.6rem; }
     .event-cards { padding: 1rem; gap: 0.75rem; }
-    .event-card { min-width: 130px; padding: 1.2rem; }
-    .categories-grid { padding: 0 1rem 2rem; }
-    .page-header { padding: 1.5rem 1rem 0.75rem; }
+    .event-card { padding: 1.2rem; }
+    .categories-grid, .links-grid { padding: 0 1rem 2rem; }
+    .page-header { padding: 1.5rem 1rem 0.75rem; flex-wrap: wrap; gap: 10px; }
+    .page-tabs { padding: 0 1rem 1rem; }
+    .add-link-row { flex-wrap: wrap; }
+    .add-link-name, .add-link-url { min-width: 100px; }
   }
 </style>
 </head>
 <body>
 
 <header class="site-header">
-  <div class="logo">
-    ♡ <span>تخطيط أفراح ربيع ٢٠٢٦</span>
-  </div>
+  <div class="logo">♡ <span>فهد وأنفال</span></div>
   <nav>
-    <button class="nav-btn active" onclick="showPage('home')">الرئيسية</button>
-    <button class="nav-btn" onclick="showPage('mawasa')">المواساة</button>
-    <button class="nav-btn" onclick="showPage('aqd')">عقد القران</button>
-    <button class="nav-btn" onclick="showPage('khotba')">الخطوبة</button>
+    <button class="nav-btn active" onclick="showPage('home')">🏠 الرئيسية</button>
+    <button class="nav-btn" onclick="showPage('mawasa')">🤍 المواساة</button>
+    <button class="nav-btn" onclick="showPage('aqd')">💍 عقد القران</button>
+    <button class="nav-btn" onclick="showPage('khotba')">🌸 الخطوبة</button>
   </nav>
 </header>
 
@@ -574,123 +672,182 @@
   </div>
 
   <div class="event-cards">
-    <div class="event-card active" onclick="showPage('mawasa')" id="card-mawasa">
-      <div class="card-icon">🤍</div>
-      <div class="card-title">المواساة</div>
-      <div class="card-subtitle">الحفلة الأولى</div>
-      <div class="card-count" id="count-mawasa">٠ عنصر</div>
+    <div class="event-group">
+      <div class="event-group-label">الحفلة الأولى</div>
+      <div class="event-card" onclick="showPage('mawasa')" id="card-mawasa">
+        <div class="card-icon">🤍</div>
+        <div class="card-title">المواساة</div>
+        <div class="card-count" id="count-mawasa-list">٠ عنصر</div>
+        <div class="card-count" id="count-mawasa-links" style="background:#E8F5E9;color:#388E3C;margin-top:4px">٠ رابط</div>
+      </div>
     </div>
-    <div class="event-card" onclick="showPage('aqd')" id="card-aqd">
-      <div class="card-icon">💍</div>
-      <div class="card-title">عقد القران</div>
-      <div class="card-subtitle">الحفلة الثانية</div>
-      <div class="card-count" id="count-aqd">٠ عنصر</div>
+    <div class="event-group">
+      <div class="event-group-label">الحفلة الثانية</div>
+      <div class="event-card" onclick="showPage('aqd')" id="card-aqd">
+        <div class="card-icon">💍</div>
+        <div class="card-title">عقد القران</div>
+        <div class="card-count" id="count-aqd-list">٠ عنصر</div>
+        <div class="card-count" id="count-aqd-links" style="background:#E8F5E9;color:#388E3C;margin-top:4px">٠ رابط</div>
+      </div>
     </div>
-    <div class="event-card" onclick="showPage('khotba')" id="card-khotba">
-      <div class="card-icon">🌸</div>
-      <div class="card-title">الخطوبة الشعبية</div>
-      <div class="card-subtitle">الحفلة الثالثة</div>
-      <div class="card-count" id="count-khotba">٠ عنصر</div>
+    <div class="event-group">
+      <div class="event-group-label">الحفلة الثالثة</div>
+      <div class="event-card" onclick="showPage('khotba')" id="card-khotba">
+        <div class="card-icon">🌸</div>
+        <div class="card-title">الخطوبة الشعبية</div>
+        <div class="card-count" id="count-khotba-list">٠ عنصر</div>
+        <div class="card-count" id="count-khotba-links" style="background:#E8F5E9;color:#388E3C;margin-top:4px">٠ رابط</div>
+      </div>
     </div>
   </div>
 </div>
 
-<!-- EVENT PAGES -->
+<!-- MAWASA PAGE -->
 <div id="mawasa-view" class="main-content">
   <div class="page-header">
     <div class="page-title-group">
       <h2>🤍 المواساة</h2>
-      <p>اضيفي القائمات والتفاصيل اللي تبين</p>
+      <p>القوائم والروابط</p>
     </div>
-    <button class="add-category-btn" onclick="openModal('mawasa')">+ كاتقوري جديد</button>
+    <button class="add-btn" id="add-btn-mawasa" onclick="handleAddBtn('mawasa')">+ إضافة</button>
   </div>
-  <div class="categories-grid" id="grid-mawasa"></div>
+  <div class="page-tabs">
+    <button class="tab-btn active" onclick="switchTab('mawasa','list')">📋 القوائم</button>
+    <button class="tab-btn" onclick="switchTab('mawasa','links')">🔗 الروابط</button>
+  </div>
+  <div id="tab-mawasa-list" class="tab-content active">
+    <div class="categories-grid" id="grid-mawasa"></div>
+  </div>
+  <div id="tab-mawasa-links" class="tab-content">
+    <div class="links-grid" id="links-mawasa"></div>
+  </div>
 </div>
 
+<!-- AQD PAGE -->
 <div id="aqd-view" class="main-content">
   <div class="page-header">
     <div class="page-title-group">
       <h2>💍 عقد القران</h2>
-      <p>اضيفي القائمات والتفاصيل اللي تبين</p>
+      <p>القوائم والروابط</p>
     </div>
-    <button class="add-category-btn" onclick="openModal('aqd')">+ كاتقوري جديد</button>
+    <button class="add-btn" id="add-btn-aqd" onclick="handleAddBtn('aqd')">+ إضافة</button>
   </div>
-  <div class="categories-grid" id="grid-aqd"></div>
+  <div class="page-tabs">
+    <button class="tab-btn active" onclick="switchTab('aqd','list')">📋 القوائم</button>
+    <button class="tab-btn" onclick="switchTab('aqd','links')">🔗 الروابط</button>
+  </div>
+  <div id="tab-aqd-list" class="tab-content active">
+    <div class="categories-grid" id="grid-aqd"></div>
+  </div>
+  <div id="tab-aqd-links" class="tab-content">
+    <div class="links-grid" id="links-aqd"></div>
+  </div>
 </div>
 
+<!-- KHOTBA PAGE -->
 <div id="khotba-view" class="main-content">
   <div class="page-header">
     <div class="page-title-group">
       <h2>🌸 الخطوبة الشعبية</h2>
-      <p>اضيفي الكاتقوريز والتفاصيل اللي تبين</p>
+      <p>القوائم والروابط</p>
     </div>
-    <button class="add-category-btn" onclick="openModal('khotba')">+ كاتقوري جديد</button>
+    <button class="add-btn" id="add-btn-khotba" onclick="handleAddBtn('khotba')">+ إضافة</button>
   </div>
-  <div class="categories-grid" id="grid-khotba"></div>
+  <div class="page-tabs">
+    <button class="tab-btn active" onclick="switchTab('khotba','list')">📋 القوائم</button>
+    <button class="tab-btn" onclick="switchTab('khotba','links')">🔗 الروابط</button>
+  </div>
+  <div id="tab-khotba-list" class="tab-content active">
+    <div class="categories-grid" id="grid-khotba"></div>
+  </div>
+  <div id="tab-khotba-links" class="tab-content">
+    <div class="links-grid" id="links-khotba"></div>
+  </div>
 </div>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modal-overlay" onclick="closeModalOutside(event)">
+<!-- MODAL - قائمة جديدة -->
+<div class="modal-overlay" id="modal-cat" onclick="closeModalOutside(event,'modal-cat')">
   <div class="modal">
-    <h3>➕ قائمة جديدة</h3>
+    <h3>🌸 قائمة جديدة</h3>
     <label>اسم القائمة</label>
     <input type="text" id="cat-name-input" placeholder="مثال: الأكل والشرب" />
-    <label>ايقونة</label>
+    <label>أيقونة</label>
     <div class="emoji-grid" id="emoji-grid"></div>
     <div class="modal-actions">
-      <button class="btn-secondary" onclick="closeModal()">إلغاء</button>
+      <button class="btn-secondary" onclick="closeModal('modal-cat')">إلغاء</button>
       <button class="btn-primary" onclick="addCategory()">إضافة</button>
     </div>
   </div>
 </div>
 
+<!-- MODAL - قسم روابط جديد -->
+<div class="modal-overlay" id="modal-linksec" onclick="closeModalOutside(event,'modal-linksec')">
+  <div class="modal">
+    <h3>🔗 قسم روابط جديد</h3>
+    <label>اسم القسم</label>
+    <input type="text" id="linksec-name-input" placeholder="مثال: صالونات الشعر" />
+    <label>أيقونة</label>
+    <div class="emoji-grid" id="emoji-grid-link"></div>
+    <div class="modal-actions">
+      <button class="btn-secondary" onclick="closeModal('modal-linksec')">إلغاء</button>
+      <button class="btn-primary" onclick="addLinkSection()">إضافة</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-names">فهد <span class="footer-heart">♡</span> أنفال</div>
+  <div class="footer-date">ربيع ٢٠٢٦ 🌸</div>
+  <div class="footer-divider">
+    <div class="footer-divider-line"></div>
+    <div class="footer-divider-icon">✦</div>
+    <div class="footer-divider-line"></div>
+  </div>
+  <div class="footer-quote">الله يتمم بالخير ويبارك لكم 🤍</div>
+</footer>
+
 <script>
-// ── DATA ──────────────────────────────────────────────────────────────
-const STORAGE_KEY = 'wedding_planner_v2';
+const STORAGE_KEY = 'wedding_planner_v3';
 const EMOJIS = ['☕','🍽️','🎂','🌸','💐','👗','👠','💄','💎','✨','🪞','📸','🎵','🎀','🕯️','🧴','💌','📋','🛍️','🎁','🚗','🏠','💍','🌹','🫧','🎊','🍬','☁️'];
 
 let data = loadData();
 let currentEvent = null;
+let currentTab = { mawasa: 'list', aqd: 'list', khotba: 'list' };
 let selectedEmoji = '📋';
+let selectedEmojiLink = '🔗';
 
 function loadData() {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
     if (raw) return JSON.parse(raw);
   } catch(e) {}
-  // Default data with mawasa pre-loaded
   return {
-    mawasa: [
-      { id: uid(), emoji: '☕', name: 'الأكل والشرب', items: [
-        { id: uid(), text: 'قهوة عربية وهيل', note: 'أساسية — تحضير بيتي أو طلب جاهزة', done: false },
-        { id: uid(), text: 'تمر', note: 'يُقدَّم مع القهوة', done: false },
-        { id: uid(), text: 'شاي هيل أو كرك', note: '', done: false },
-        { id: uid(), text: 'حلويات خفيفة', note: 'بسكويت، لقيمات، كيك', done: false },
-        { id: uid(), text: 'مياه وعصائر', note: '', done: false },
-      ]},
-      { id: uid(), emoji: '👗', name: 'الفستان واللوك', items: [
-        { id: uid(), text: 'فستان أبيض دانتيل', note: 'تحديد: جاهز من محل أو خياطة', done: false },
-        { id: uid(), text: 'الحذاء', note: 'أبيض أو شامبين', done: false },
-        { id: uid(), text: 'الإكسسوارات', note: 'عقد، أساور، كليبس', done: false },
-      ]},
-      { id: uid(), emoji: '✨', name: 'الميكب والشعر', items: [
-        { id: uid(), text: 'حجز موعد صالون للشعر', note: 'احجزي مبكر', done: false },
-        { id: uid(), text: 'تحديد تسريحة الشعر', note: 'صور مرجعية', done: false },
-        { id: uid(), text: 'تجربة اللوك قبل اليوم', note: '', done: false },
-      ]},
-      { id: uid(), emoji: '🌸', name: 'الديكور', items: [
-        { id: uid(), text: 'ترتيب الجلسة والمقاعد', note: '', done: false },
-        { id: uid(), text: 'ورد أو زهور', note: 'عند المدخل أو طاولة القهوة', done: false },
-        { id: uid(), text: 'شمعات أو إضاءة خفيفة', note: '', done: false },
-      ]},
-      { id: uid(), emoji: '📋', name: 'باقي الأشياء', items: [
-        { id: uid(), text: 'توزيع الدعوات', note: 'واتساب أو بطاقة رقمية', done: false },
-        { id: uid(), text: 'تحديد التاريخ والوقت', note: '', done: false },
-        { id: uid(), text: 'مصور أو شخص مسؤول عن الصور', note: '', done: false },
-      ]},
-    ],
-    aqd: [],
-    khotba: []
+    mawasa: {
+      lists: [
+        { id: uid(), emoji: '☕', name: 'الأكل والشرب', items: [
+          { id: uid(), text: 'قهوة عربية وهيل', note: 'أساسية', done: false },
+          { id: uid(), text: 'تمر', note: 'يُقدَّم مع القهوة', done: false },
+          { id: uid(), text: 'حلويات خفيفة', note: 'بسكويت، لقيمات، كيك', done: false },
+        ]},
+        { id: uid(), emoji: '👗', name: 'الفستان واللوك', items: [
+          { id: uid(), text: 'فستان أبيض دانتيل', note: 'جاهز أو خياطة', done: false },
+          { id: uid(), text: 'الحذاء', note: 'أبيض أو شامبين', done: false },
+        ]},
+        { id: uid(), emoji: '✨', name: 'الميكب والشعر', items: [
+          { id: uid(), text: 'حجز موعد صالون', note: 'احجزي مبكر', done: false },
+          { id: uid(), text: 'تجربة اللوك قبل اليوم', note: '', done: false },
+        ]},
+      ],
+      links: [
+        { id: uid(), emoji: '✂️', name: 'صالونات الشعر', items: [
+          { id: uid(), name: 'مثال: صالون X', url: 'https://instagram.com' },
+        ]},
+        { id: uid(), emoji: '🛍️', name: 'محلات الفساتين', items: [] },
+      ]
+    },
+    aqd: { lists: [], links: [] },
+    khotba: { lists: [], links: [] }
   };
 }
 
@@ -699,77 +856,92 @@ function saveData() {
   updateHomeCounts();
 }
 
-function uid() { return Math.random().toString(36).slice(2, 9); }
+function uid() { return Math.random().toString(36).slice(2,9); }
 
-// ── NAVIGATION ────────────────────────────────────────────────────────
+// NAV
 function showPage(page) {
   document.querySelectorAll('.nav-btn').forEach((b,i) => {
-    const pages = ['home','mawasa','aqd','khotba'];
-    b.classList.toggle('active', pages[i] === page);
+    b.classList.toggle('active', ['home','mawasa','aqd','khotba'][i] === page);
   });
   document.getElementById('home-view').classList.toggle('hidden', page !== 'home');
+  document.getElementById('home-view').style.display = page === 'home' ? 'block' : 'none';
   document.querySelectorAll('.main-content').forEach(el => el.classList.remove('active'));
   if (page !== 'home') {
-    document.getElementById(page + '-view').classList.add('active');
-    renderGrid(page);
+    const view = document.getElementById(page + '-view');
+    view.classList.add('active');
+    renderAll(page);
   }
-  // card highlight
   ['mawasa','aqd','khotba'].forEach(e => {
     const c = document.getElementById('card-' + e);
     if(c) c.classList.toggle('active', e === page);
   });
 }
 
-// ── RENDER ────────────────────────────────────────────────────────────
+// TABS
+function switchTab(eventKey, tab) {
+  currentTab[eventKey] = tab;
+  const tabs = document.querySelectorAll(`#${eventKey}-view .tab-btn`);
+  tabs.forEach((b,i) => b.classList.toggle('active', i === (tab === 'list' ? 0 : 1)));
+  document.getElementById('tab-' + eventKey + '-list').classList.toggle('active', tab === 'list');
+  document.getElementById('tab-' + eventKey + '-links').classList.toggle('active', tab === 'links');
+  const btn = document.getElementById('add-btn-' + eventKey);
+  btn.textContent = tab === 'list' ? '+ قائمة جديدة' : '+ قسم روابط';
+}
+
+function handleAddBtn(eventKey) {
+  currentEvent = eventKey;
+  if (currentTab[eventKey] === 'list') openModal('modal-cat');
+  else openModalLink();
+}
+
+// RENDER ALL
+function renderAll(eventKey) {
+  renderGrid(eventKey);
+  renderLinks(eventKey);
+  updateHomeCounts();
+}
+
+// ── CHECKLIST ──
 function renderGrid(eventKey) {
   const grid = document.getElementById('grid-' + eventKey);
-  const cats = data[eventKey] || [];
-  if (cats.length === 0) {
-    grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🌿</span><p>ما في كاتقوريز بعد — اضغطي "كاتقوري جديد" لتبدأين!</p></div>`;
+  const cats = data[eventKey].lists || [];
+  if (!cats.length) {
+    grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🌸</span><p>ما في قوائم بعد — اضغطي "+ قائمة جديدة"</p></div>`;
     return;
   }
   grid.innerHTML = cats.map(cat => renderCategory(eventKey, cat)).join('');
-  updateHomeCounts();
 }
 
 function renderCategory(eventKey, cat) {
   const done = cat.items.filter(i => i.done).length;
   const total = cat.items.length;
   const pct = total ? Math.round((done/total)*100) : 0;
-
   const itemsHtml = cat.items.map(item => `
     <div class="item-row" id="row-${item.id}">
-      <div class="check-box ${item.done ? 'checked' : ''}" onclick="toggleItem('${eventKey}','${cat.id}','${item.id}')">${item.done ? '✓' : ''}</div>
+      <div class="check-box ${item.done?'checked':''}" onclick="toggleItem('${eventKey}','${cat.id}','${item.id}')">${item.done?'✓':''}</div>
       <div style="flex:1">
-        <input class="item-text ${item.done ? 'done' : ''}" value="${escHtml(item.text)}" 
-          onchange="updateItemText('${eventKey}','${cat.id}','${item.id}',this.value)"
-          placeholder="اكتبي العنصر...">
-        <input class="item-note ${item.note ? 'visible' : ''}" value="${escHtml(item.note)}"
-          id="note-${item.id}"
+        <input class="item-text ${item.done?'done':''}" value="${escHtml(item.text)}"
+          onchange="updateItemText('${eventKey}','${cat.id}','${item.id}',this.value)" placeholder="اكتبي العنصر...">
+        <input class="item-note ${item.note?'visible':''}" value="${escHtml(item.note)}"
           onchange="updateItemNote('${eventKey}','${cat.id}','${item.id}',this.value)"
-          placeholder="ملاحظة (اختياري)..."
-          onfocus="this.classList.add('visible')">
+          placeholder="ملاحظة..." onfocus="this.classList.add('visible')">
       </div>
-      <button class="item-delete" onclick="deleteItem('${eventKey}','${cat.id}','${item.id}')" title="حذف">✕</button>
-    </div>
-  `).join('');
-
+      <button class="item-delete" onclick="deleteItem('${eventKey}','${cat.id}','${item.id}')">✕</button>
+    </div>`).join('');
   return `
     <div class="category-card" id="cat-${cat.id}">
       <div class="category-header">
         <div class="category-title-row">
           <span class="category-emoji">${cat.emoji}</span>
-          <input class="category-name" value="${escHtml(cat.name)}" 
-            onchange="updateCatName('${eventKey}','${cat.id}',this.value)">
+          <input class="category-name" value="${escHtml(cat.name)}" onchange="updateCatName('${eventKey}','${cat.id}',this.value)">
         </div>
         <div class="cat-actions">
-          <button class="icon-btn delete" onclick="deleteCategory('${eventKey}','${cat.id}')" title="حذف الكاتقوري">🗑</button>
+          <button class="icon-btn delete" onclick="deleteCategory('${eventKey}','${cat.id}')">🗑</button>
         </div>
       </div>
-      <div class="items-list">
-        ${itemsHtml}
+      <div class="items-list">${itemsHtml}
         <div class="add-item-row">
-          <input class="add-item-input" id="add-${cat.id}" placeholder="+ اضيفي عنصر جديد..."
+          <input class="add-item-input" id="add-${cat.id}" placeholder="+ اضيفي عنصر..."
             onkeydown="if(event.key==='Enter') addItem('${eventKey}','${cat.id}')">
           <button class="add-item-btn" onclick="addItem('${eventKey}','${cat.id}')">+</button>
         </div>
@@ -778,120 +950,159 @@ function renderCategory(eventKey, cat) {
         <div class="progress-track"><div class="progress-fill" style="width:${pct}%"></div></div>
         <span class="progress-text">${done}/${total}</span>
       </div>
-    </div>
-  `;
+    </div>`;
 }
 
-function escHtml(str) {
-  return (str || '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+// ── LINKS ──
+function renderLinks(eventKey) {
+  const grid = document.getElementById('links-' + eventKey);
+  const secs = data[eventKey].links || [];
+  if (!secs.length) {
+    grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🔗</span><p>ما في روابط بعد — اضغطي "+ قسم روابط"</p></div>`;
+    return;
+  }
+  grid.innerHTML = secs.map(sec => renderLinkSection(eventKey, sec)).join('');
 }
 
-// ── CATEGORY ACTIONS ──────────────────────────────────────────────────
-function openModal(eventKey) {
-  currentEvent = eventKey;
+function renderLinkSection(eventKey, sec) {
+  const linksHtml = (sec.items||[]).map(lnk => `
+    <div class="link-row" id="lrow-${lnk.id}">
+      <div class="link-icon">${sec.emoji}</div>
+      <div class="link-info">
+        <input class="link-name-input" value="${escHtml(lnk.name)}"
+          onchange="updateLinkName('${eventKey}','${sec.id}','${lnk.id}',this.value)" placeholder="اسم الرابط">
+        <input class="link-url-input" value="${escHtml(lnk.url)}"
+          onchange="updateLinkUrl('${eventKey}','${sec.id}','${lnk.id}',this.value)" placeholder="https://...">
+      </div>
+      ${lnk.url ? `<a class="link-open-btn" href="${escHtml(lnk.url)}" target="_blank" title="افتح الرابط">↗</a>` : '<span style="width:26px"></span>'}
+      <button class="link-delete-btn" onclick="deleteLink('${eventKey}','${sec.id}','${lnk.id}')">✕</button>
+    </div>`).join('');
+  return `
+    <div class="link-section-card" id="lsec-${sec.id}">
+      <div class="link-section-header">
+        <div class="link-section-title-row">
+          <span class="category-emoji">${sec.emoji}</span>
+          <input class="link-section-name" value="${escHtml(sec.name)}" onchange="updateLinkSecName('${eventKey}','${sec.id}',this.value)">
+        </div>
+        <button class="icon-btn delete" onclick="deleteLinkSection('${eventKey}','${sec.id}')">🗑</button>
+      </div>
+      <div class="link-items">${linksHtml}
+        <div class="add-link-row">
+          <input class="add-link-name" id="aln-${sec.id}" placeholder="الاسم">
+          <input class="add-link-url" id="alu-${sec.id}" placeholder="https://..."
+            onkeydown="if(event.key==='Enter') addLink('${eventKey}','${sec.id}')">
+          <button class="add-link-btn" onclick="addLink('${eventKey}','${sec.id}')">+</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+
+// MODAL CAT
+function openModal(id) {
   selectedEmoji = '📋';
   document.getElementById('cat-name-input').value = '';
-  buildEmojiGrid();
-  document.getElementById('modal-overlay').classList.add('open');
+  buildEmojiGrid('emoji-grid', selectedEmoji, e => { selectedEmoji = e; });
+  document.getElementById(id).classList.add('open');
   setTimeout(() => document.getElementById('cat-name-input').focus(), 200);
 }
 
-function closeModal() { document.getElementById('modal-overlay').classList.remove('open'); }
-function closeModalOutside(e) { if (e.target.id === 'modal-overlay') closeModal(); }
+function openModalLink() {
+  selectedEmojiLink = '🔗';
+  document.getElementById('linksec-name-input').value = '';
+  buildEmojiGrid('emoji-grid-link', selectedEmojiLink, e => { selectedEmojiLink = e; });
+  document.getElementById('modal-linksec').classList.add('open');
+  setTimeout(() => document.getElementById('linksec-name-input').focus(), 200);
+}
 
-function buildEmojiGrid() {
-  document.getElementById('emoji-grid').innerHTML = EMOJIS.map(e =>
-    `<div class="emoji-opt ${e===selectedEmoji?'selected':''}" onclick="selectEmoji('${e}')">${e}</div>`
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+function closeModalOutside(e, id) { if(e.target.id === id) closeModal(id); }
+
+function buildEmojiGrid(gridId, selected, onSelect) {
+  document.getElementById(gridId).innerHTML = EMOJIS.map(e =>
+    `<div class="emoji-opt ${e===selected?'selected':''}" onclick="selectEmojiIn('${gridId}','${e}')">${e}</div>`
   ).join('');
 }
 
-function selectEmoji(e) {
-  selectedEmoji = e;
-  document.querySelectorAll('.emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
+function selectEmojiIn(gridId, e) {
+  if (gridId === 'emoji-grid') selectedEmoji = e;
+  else selectedEmojiLink = e;
+  document.querySelectorAll('#' + gridId + ' .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
 }
 
 function addCategory() {
   const name = document.getElementById('cat-name-input').value.trim();
-  if (!name) { document.getElementById('cat-name-input').focus(); return; }
-  data[currentEvent].push({ id: uid(), emoji: selectedEmoji, name, items: [] });
-  saveData();
-  renderGrid(currentEvent);
-  closeModal();
+  if (!name) return;
+  data[currentEvent].lists.push({ id: uid(), emoji: selectedEmoji, name, items: [] });
+  saveData(); renderGrid(currentEvent); closeModal('modal-cat');
+}
+
+function addLinkSection() {
+  const name = document.getElementById('linksec-name-input').value.trim();
+  if (!name) return;
+  data[currentEvent].links.push({ id: uid(), emoji: selectedEmojiLink, name, items: [] });
+  saveData(); renderLinks(currentEvent); closeModal('modal-linksec');
 }
 
 function deleteCategory(eventKey, catId) {
-  if (!confirm('تبين تحذفين هذا الكاتقوري؟')) return;
-  data[eventKey] = data[eventKey].filter(c => c.id !== catId);
-  saveData();
-  renderGrid(eventKey);
+  if (!confirm('تبين تحذفين هذه القائمة؟')) return;
+  data[eventKey].lists = data[eventKey].lists.filter(c => c.id !== catId);
+  saveData(); renderGrid(eventKey);
 }
 
 function updateCatName(eventKey, catId, val) {
-  const cat = data[eventKey].find(c => c.id === catId);
+  const cat = data[eventKey].lists.find(c => c.id === catId);
   if (cat) { cat.name = val; saveData(); }
 }
 
-// ── ITEM ACTIONS ──────────────────────────────────────────────────────
 function addItem(eventKey, catId) {
   const input = document.getElementById('add-' + catId);
   const text = input.value.trim();
   if (!text) return;
-  const cat = data[eventKey].find(c => c.id === catId);
+  const cat = data[eventKey].lists.find(c => c.id === catId);
   if (cat) {
     cat.items.push({ id: uid(), text, note: '', done: false });
-    saveData();
-    renderGrid(eventKey);
-    // refocus
-    setTimeout(() => {
-      const el = document.getElementById('add-' + catId);
-      if(el) el.focus();
-    }, 50);
+    saveData(); renderGrid(eventKey);
+    setTimeout(() => { const el = document.getElementById('add-' + catId); if(el) el.focus(); }, 50);
   }
 }
 
 function toggleItem(eventKey, catId, itemId) {
-  const cat = data[eventKey].find(c => c.id === catId);
+  const cat = data[eventKey].lists.find(c => c.id === catId);
   if (!cat) return;
   const item = cat.items.find(i => i.id === itemId);
   if (item) {
-    item.done = !item.done;
-    saveData();
-    // quick DOM update instead of full re-render
+    item.done = !item.done; saveData();
     const row = document.getElementById('row-' + itemId);
     if (row) {
-      const cb = row.querySelector('.check-box');
-      const txt = row.querySelector('.item-text');
-      cb.classList.toggle('checked', item.done);
-      cb.textContent = item.done ? '✓' : '';
-      txt.classList.toggle('done', item.done);
+      row.querySelector('.check-box').classList.toggle('checked', item.done);
+      row.querySelector('.check-box').textContent = item.done ? '✓' : '';
+      row.querySelector('.item-text').classList.toggle('done', item.done);
     }
     updateProgressBar(eventKey, catId);
   }
 }
 
 function updateItemText(eventKey, catId, itemId, val) {
-  const cat = data[eventKey].find(c => c.id === catId);
+  const cat = data[eventKey].lists.find(c => c.id === catId);
   const item = cat && cat.items.find(i => i.id === itemId);
   if (item) { item.text = val; saveData(); }
 }
 
 function updateItemNote(eventKey, catId, itemId, val) {
-  const cat = data[eventKey].find(c => c.id === catId);
+  const cat = data[eventKey].lists.find(c => c.id === catId);
   const item = cat && cat.items.find(i => i.id === itemId);
   if (item) { item.note = val; saveData(); }
 }
 
 function deleteItem(eventKey, catId, itemId) {
-  const cat = data[eventKey].find(c => c.id === catId);
-  if (cat) {
-    cat.items = cat.items.filter(i => i.id !== itemId);
-    saveData();
-    renderGrid(eventKey);
-  }
+  const cat = data[eventKey].lists.find(c => c.id === catId);
+  if (cat) { cat.items = cat.items.filter(i => i.id !== itemId); saveData(); renderGrid(eventKey); }
 }
 
 function updateProgressBar(eventKey, catId) {
-  const cat = data[eventKey].find(c => c.id === catId);
+  const cat = data[eventKey].lists.find(c => c.id === catId);
   if (!cat) return;
   const done = cat.items.filter(i => i.done).length;
   const total = cat.items.length;
@@ -905,17 +1116,65 @@ function updateProgressBar(eventKey, catId) {
   }
 }
 
-// ── HOME COUNTS ───────────────────────────────────────────────────────
+// LINK ACTIONS
+function addLink(eventKey, secId) {
+  const nameEl = document.getElementById('aln-' + secId);
+  const urlEl = document.getElementById('alu-' + secId);
+  const name = nameEl.value.trim();
+  const url = urlEl.value.trim();
+  if (!name) { nameEl.focus(); return; }
+  const sec = data[eventKey].links.find(s => s.id === secId);
+  if (sec) {
+    sec.items.push({ id: uid(), name, url });
+    saveData(); renderLinks(eventKey);
+    setTimeout(() => { const el = document.getElementById('aln-' + secId); if(el) el.focus(); }, 50);
+  }
+}
+
+function updateLinkName(eventKey, secId, lnkId, val) {
+  const sec = data[eventKey].links.find(s => s.id === secId);
+  const lnk = sec && sec.items.find(l => l.id === lnkId);
+  if (lnk) { lnk.name = val; saveData(); }
+}
+
+function updateLinkUrl(eventKey, secId, lnkId, val) {
+  const sec = data[eventKey].links.find(s => s.id === secId);
+  const lnk = sec && sec.items.find(l => l.id === lnkId);
+  if (lnk) { lnk.url = val; saveData(); renderLinks(eventKey); }
+}
+
+function updateLinkSecName(eventKey, secId, val) {
+  const sec = data[eventKey].links.find(s => s.id === secId);
+  if (sec) { sec.name = val; saveData(); }
+}
+
+function deleteLink(eventKey, secId, lnkId) {
+  const sec = data[eventKey].links.find(s => s.id === secId);
+  if (sec) { sec.items = sec.items.filter(l => l.id !== lnkId); saveData(); renderLinks(eventKey); }
+}
+
+function deleteLinkSection(eventKey, secId) {
+  if (!confirm('تبين تحذفين هذا القسم؟')) return;
+  data[eventKey].links = data[eventKey].links.filter(s => s.id !== secId);
+  saveData(); renderLinks(eventKey);
+}
+
+// COUNTS
 function updateHomeCounts() {
   ['mawasa','aqd','khotba'].forEach(key => {
-    const cats = data[key] || [];
-    const total = cats.reduce((s,c) => s + c.items.length, 0);
-    const el = document.getElementById('count-' + key);
-    if (el) el.textContent = total + ' عنصر';
+    const lists = data[key].lists || [];
+    const links = data[key].links || [];
+    const totalItems = lists.reduce((s,c) => s + c.items.length, 0);
+    const totalLinks = links.reduce((s,c) => s + c.items.length, 0);
+    const elList = document.getElementById('count-' + key + '-list');
+    const elLinks = document.getElementById('count-' + key + '-links');
+    if (elList) elList.textContent = totalItems + ' عنصر';
+    if (elLinks) elLinks.textContent = totalLinks + ' رابط';
   });
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────
+// INIT
+document.getElementById('home-view').style.display = 'block';
 updateHomeCounts();
 </script>
 </body>
