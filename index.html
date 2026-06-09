@@ -1,3 +1,4 @@
+cat > /mnt/user-data/outputs/wedding-planner/index.html << 'HTMLEOF'
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
@@ -34,7 +35,6 @@
     flex-direction: column;
   }
 
-  /* HEADER */
   .site-header {
     background: white;
     border-bottom: 1px solid var(--حدود);
@@ -49,113 +49,34 @@
     box-shadow: 0 2px 20px var(--ظل);
   }
 
-  .logo {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.4rem;
-    color: var(--وردي-عميق);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
+  .logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--وردي-عميق); display: flex; align-items: center; gap: 8px; }
   .logo span { font-family: 'Tajawal'; font-style: normal; font-size: 0.85rem; color: var(--نص-فاتح); font-weight: 400; }
 
   nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
 
-  .nav-btn {
-    padding: 7px 14px;
-    border-radius: 50px;
-    border: 1px solid transparent;
-    background: none;
-    font-family: 'Tajawal';
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--نص-متوسط);
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
+  .nav-btn { padding: 7px 14px; border-radius: 50px; border: 1px solid transparent; background: none; font-family: 'Tajawal'; font-size: 0.85rem; font-weight: 500; color: var(--نص-متوسط); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .nav-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
   .nav-btn.active { background: var(--وردي-عميق); color: white; border-color: var(--وردي-عميق); }
 
-  /* HERO */
-  .hero {
-    text-align: center;
-    padding: 4rem 2rem 2rem;
-    background: linear-gradient(180deg, white 0%, #FFF0F3 100%);
-    border-bottom: 1px solid var(--حدود);
-  }
-
+  .hero { text-align: center; padding: 4rem 2rem 2rem; background: linear-gradient(180deg, white 0%, #FFF0F3 100%); border-bottom: 1px solid var(--حدود); }
   .hero-ornament { font-size: 1.5rem; letter-spacing: 12px; color: var(--وردي); margin-bottom: 1rem; display: block; }
   .hero h1 { font-size: 2.2rem; font-weight: 700; color: var(--نص-داكن); margin-bottom: 0.5rem; line-height: 1.4; }
   .hero p { color: var(--نص-فاتح); font-size: 1rem; font-weight: 300; }
 
-  .event-cards {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    padding: 2rem;
-    flex-wrap: wrap;
-  }
+  .event-cards { display: flex; gap: 1rem; justify-content: center; padding: 2rem; flex-wrap: wrap; }
 
-  /* بطاقتين لكل مناسبة */
-  .event-group {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-    min-width: 160px;
-  }
+  .event-group { display: flex; flex-direction: column; gap: 0.6rem; min-width: 160px; }
+  .event-group-label { text-align: center; font-size: 0.75rem; color: var(--نص-فاتح); font-weight: 500; letter-spacing: 1px; }
 
-  .event-group-label {
-    text-align: center;
-    font-size: 0.75rem;
-    color: var(--نص-فاتح);
-    font-weight: 500;
-    letter-spacing: 1px;
-  }
-
-  .event-card {
-    background: white;
-    border: 1px solid var(--حدود);
-    border-radius: 16px;
-    padding: 1.5rem 2rem;
-    cursor: pointer;
-    transition: all 0.25s;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .event-card::before {
-    content: '';
-    position: absolute;
-    top: 0; right: 0; left: 0;
-    height: 3px;
-    background: var(--حدود);
-    transition: background 0.2s;
-  }
-
+  .event-card { background: white; border: 1px solid var(--حدود); border-radius: 16px; padding: 1.5rem 2rem; cursor: pointer; transition: all 0.25s; text-align: center; position: relative; overflow: hidden; }
+  .event-card::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: var(--حدود); transition: background 0.2s; }
   .event-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--ظل); }
   .event-card.active { border-color: var(--وردي-غامق); box-shadow: 0 4px 20px var(--ظل); }
   .event-card.active::before { background: linear-gradient(90deg, var(--وردي-غامق), var(--وردي)); }
-
   .event-card .card-icon { font-size: 2rem; margin-bottom: 0.5rem; }
   .event-card .card-title { font-size: 1rem; font-weight: 700; color: var(--نص-داكن); }
-  .event-card .card-subtitle { font-size: 0.75rem; color: var(--نص-فاتح); margin-top: 2px; }
-  .event-card .card-count {
-    display: inline-block;
-    margin-top: 8px;
-    background: var(--وردي-فاتح);
-    color: var(--وردي-عميق);
-    font-size: 0.72rem;
-    font-weight: 500;
-    padding: 2px 10px;
-    border-radius: 20px;
-  }
+  .event-card .card-count { display: inline-block; margin-top: 8px; background: var(--وردي-فاتح); color: var(--وردي-عميق); font-size: 0.72rem; font-weight: 500; padding: 2px 10px; border-radius: 20px; }
 
-  /* PAGES */
   .main-content { display: none; flex: 1; }
   .main-content.active { display: block; animation: fadeIn 0.3s ease; }
   #home-view { flex: 1; }
@@ -163,420 +84,261 @@
 
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-  .page-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2rem 2rem 1rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
+  .page-header { display: flex; align-items: center; justify-content: space-between; padding: 2rem 2rem 1rem; max-width: 900px; margin: 0 auto; }
   .page-title-group h2 { font-size: 1.6rem; font-weight: 700; color: var(--نص-داكن); }
   .page-title-group p { font-size: 0.9rem; color: var(--نص-فاتح); margin-top: 2px; }
 
-  .add-btn {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 10px 20px;
-    background: var(--وردي-عميق);
-    color: white;
-    border: none;
-    border-radius: 50px;
-    font-family: 'Tajawal';
-    font-size: 0.9rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.2s;
-    white-space: nowrap;
-  }
-
+  .add-btn { display: flex; align-items: center; gap: 6px; padding: 10px 20px; background: var(--وردي-عميق); color: white; border: none; border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .add-btn:hover { background: var(--وردي-غامق); transform: translateY(-1px); }
 
-  /* TABS داخل كل صفحة */
-  .page-tabs {
-    display: flex;
-    gap: 8px;
-    padding: 0 2rem 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .tab-btn {
-    padding: 8px 20px;
-    border-radius: 50px;
-    border: 1px solid var(--حدود);
-    background: white;
-    font-family: 'Tajawal';
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--نص-متوسط);
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-
+  .page-tabs { display: flex; gap: 8px; padding: 0 2rem 1.5rem; max-width: 900px; margin: 0 auto; }
+  .tab-btn { padding: 8px 20px; border-radius: 50px; border: 1px solid var(--حدود); background: white; font-family: 'Tajawal'; font-size: 0.88rem; font-weight: 500; color: var(--نص-متوسط); cursor: pointer; transition: all 0.2s; }
   .tab-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
   .tab-btn.active { background: var(--وردي-عميق); color: white; border-color: var(--وردي-عميق); }
 
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
-  /* GRID */
-  .categories-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
-    padding: 0 2rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; padding: 0 2rem 3rem; max-width: 900px; margin: 0 auto; }
 
   /* LINKS GRID */
-  .links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 1.25rem;
-    padding: 0 2rem 3rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+  .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; padding: 0 2rem 3rem; max-width: 900px; margin: 0 auto; }
 
-  .link-section-card {
-    background: white;
-    border: 1px solid var(--حدود);
-    border-radius: 16px;
-    overflow: hidden;
-  }
+  .link-section-card { background: white; border: 1px solid var(--حدود); border-radius: 16px; overflow: hidden; }
 
-  .link-section-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--حدود);
-    background: linear-gradient(135deg, white, #FFF8FA);
-  }
-
+  .link-section-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--حدود); background: linear-gradient(135deg, white, #FFF8FA); }
   .link-section-title-row { display: flex; align-items: center; gap: 8px; flex: 1; }
+  .link-section-name { font-size: 1rem; font-weight: 700; color: var(--نص-داكن); background: none; border: none; font-family: 'Tajawal'; flex: 1; text-align: right; padding: 0; cursor: pointer; }
+  .link-section-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
 
-  .link-section-name {
+  .link-items { padding: 0.5rem; }
+
+  /* بطاقة الرابط الجديدة */
+  .link-card {
+    background: #FFFBFC;
+    border: 1px solid var(--حدود);
+    border-radius: 12px;
+    padding: 12px;
+    margin-bottom: 8px;
+    transition: box-shadow 0.15s;
+    position: relative;
+  }
+
+  .link-card:hover { box-shadow: 0 2px 12px var(--ظل); }
+
+  .link-card-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .link-card-icon {
+    width: 34px; height: 34px;
+    border-radius: 8px;
+    background: var(--وردي-فاتح);
+    display: flex; align-items: center; justify-content: center;
     font-size: 1rem;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .link-card-fields { flex: 1; display: flex; flex-direction: column; gap: 4px; }
+
+  .link-field-name {
+    font-size: 0.92rem;
     font-weight: 700;
     color: var(--نص-داكن);
     background: none;
     border: none;
     font-family: 'Tajawal';
-    flex: 1;
     text-align: right;
-    padding: 0;
-    cursor: pointer;
-  }
-
-  .link-section-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
-
-  .link-items { padding: 0.5rem; }
-
-  .link-row {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px;
-    border-radius: 10px;
-    transition: background 0.15s;
-  }
-
-  .link-row:hover { background: #FFF5F7; }
-
-  .link-icon {
-    width: 32px; height: 32px;
-    border-radius: 8px;
-    background: var(--وردي-فاتح);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 0.9rem;
-    flex-shrink: 0;
-  }
-
-  .link-info { flex: 1; min-width: 0; }
-
-  .link-name-input {
+    padding: 2px 0;
     width: 100%;
-    font-size: 0.88rem;
-    font-weight: 500;
-    color: var(--نص-داكن);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    text-align: right;
-    padding: 1px 0;
     direction: rtl;
   }
 
-  .link-name-input:focus { outline: none; border-bottom: 1px dashed var(--وردي); }
+  .link-field-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
 
-  .link-url-input {
-    width: 100%;
-    font-size: 0.78rem;
+  .link-field-price {
+    font-size: 0.82rem;
+    font-weight: 600;
     color: var(--وردي-عميق);
     background: none;
     border: none;
     font-family: 'Tajawal';
     text-align: right;
-    padding: 1px 0;
+    padding: 2px 0;
+    width: 100%;
+    direction: rtl;
+  }
+
+  .link-field-price:focus { outline: none; border-bottom: 1px dashed var(--وردي); }
+  .link-field-price::placeholder { color: var(--نص-فاتح); font-weight: 400; }
+
+  .link-field-desc {
+    font-size: 0.8rem;
+    color: var(--نص-متوسط);
+    background: none;
+    border: none;
+    font-family: 'Tajawal';
+    text-align: right;
+    padding: 2px 0;
+    width: 100%;
+    direction: rtl;
+    resize: none;
+    line-height: 1.4;
+  }
+
+  .link-field-desc:focus { outline: none; border-bottom: 1px dashed var(--بيج); }
+  .link-field-desc::placeholder { color: var(--نص-فاتح); }
+
+  .link-card-bottom {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 6px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--حدود);
+  }
+
+  .link-field-url {
+    flex: 1;
+    font-size: 0.78rem;
+    color: var(--وردي-غامق);
+    background: none;
+    border: none;
+    font-family: 'Tajawal';
+    padding: 2px 0;
     direction: ltr;
     text-align: left;
   }
 
-  .link-url-input:focus { outline: none; border-bottom: 1px dashed var(--وردي-فاتح); }
-  .link-url-input::placeholder { color: var(--نص-فاتح); direction: rtl; text-align: right; }
+  .link-field-url:focus { outline: none; border-bottom: 1px dashed var(--وردي-فاتح); }
+  .link-field-url::placeholder { color: var(--نص-فاتح); direction: rtl; text-align: right; }
 
   .link-open-btn {
-    width: 26px; height: 26px;
-    border-radius: 7px;
-    border: none;
-    background: var(--وردي-فاتح);
-    color: var(--وردي-عميق);
-    cursor: pointer;
-    font-size: 0.8rem;
-    display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0;
-    transition: all 0.15s;
-    text-decoration: none;
+    width: 28px; height: 28px; border-radius: 7px; border: none;
+    background: var(--وردي-فاتح); color: var(--وردي-عميق); cursor: pointer;
+    font-size: 0.85rem; display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; transition: all 0.15s; text-decoration: none;
   }
 
   .link-open-btn:hover { background: var(--وردي-عميق); color: white; }
 
-  .link-delete-btn {
+  .link-card-delete {
+    position: absolute;
+    top: 8px; left: 8px;
+    width: 22px; height: 22px;
+    border: none; background: none; cursor: pointer;
+    color: var(--نص-فاتح); font-size: 0.75rem;
+    border-radius: 4px; transition: all 0.15s;
     opacity: 0;
-    width: 20px; height: 20px;
-    border: none;
-    background: none;
-    cursor: pointer;
-    color: var(--نص-فاتح);
-    font-size: 0.8rem;
-    transition: all 0.15s;
-    flex-shrink: 0;
-    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
   }
 
-  .link-row:hover .link-delete-btn { opacity: 1; }
-  .link-delete-btn:hover { color: #C0392B; background: #FDECEA; }
+  .link-card:hover .link-card-delete { opacity: 1; }
+  .link-card-delete:hover { color: #C0392B; background: #FDECEA; }
 
-  .add-link-row {
+  /* فورم إضافة رابط جديد */
+  .add-link-form {
+    background: var(--وردي-فاتح);
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 6px;
     display: flex;
+    flex-direction: column;
     gap: 6px;
-    padding: 8px;
-    margin-top: 2px;
-    align-items: center;
   }
 
-  .add-link-name {
-    flex: 1;
+  .add-link-form input {
+    width: 100%;
     border: 1px dashed var(--حدود);
     border-radius: 8px;
     padding: 6px 10px;
     font-family: 'Tajawal';
     font-size: 0.82rem;
-    background: #FFF8FA;
+    background: white;
     color: var(--نص-داكن);
     text-align: right;
     direction: rtl;
   }
 
-  .add-link-url {
-    flex: 2;
-    border: 1px dashed var(--حدود);
-    border-radius: 8px;
-    padding: 6px 10px;
-    font-family: 'Tajawal';
-    font-size: 0.82rem;
-    background: #FFF8FA;
-    color: var(--نص-داكن);
-    direction: ltr;
-    text-align: left;
-  }
+  .add-link-form input:focus { outline: none; border-color: var(--وردي-غامق); }
+  .add-link-form input::placeholder { color: var(--نص-فاتح); }
 
-  .add-link-name:focus, .add-link-url:focus { outline: none; border-color: var(--وردي-غامق); background: white; }
-  .add-link-name::placeholder, .add-link-url::placeholder { color: var(--نص-فاتح); }
+  .add-link-form input.ltr-input { direction: ltr; text-align: left; }
+  .add-link-form input.ltr-input::placeholder { direction: rtl; text-align: right; }
 
-  .add-link-btn {
-    width: 30px; height: 30px;
-    border-radius: 8px;
+  .add-link-form-btn {
+    width: 100%;
+    padding: 7px;
+    background: var(--وردي-عميق);
+    color: white;
     border: none;
-    background: var(--وردي-فاتح);
-    color: var(--وردي-عميق);
+    border-radius: 8px;
+    font-family: 'Tajawal';
+    font-size: 0.85rem;
+    font-weight: 500;
     cursor: pointer;
-    font-size: 1.1rem;
-    display: flex; align-items: center; justify-content: center;
     transition: all 0.15s;
-    flex-shrink: 0;
   }
 
-  .add-link-btn:hover { background: var(--وردي-عميق); color: white; }
+  .add-link-form-btn:hover { background: var(--وردي-غامق); }
 
-  /* CATEGORY CARD (checklist) */
-  .category-card {
-    background: white;
-    border: 1px solid var(--حدود);
-    border-radius: 16px;
-    overflow: hidden;
-    transition: box-shadow 0.2s;
-  }
-
+  /* CATEGORY CARD */
+  .category-card { background: white; border: 1px solid var(--حدود); border-radius: 16px; overflow: hidden; transition: box-shadow 0.2s; }
   .category-card:hover { box-shadow: 0 4px 20px var(--ظل); }
-
-  .category-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem 1.25rem;
-    border-bottom: 1px solid var(--حدود);
-    background: linear-gradient(135deg, white, #FFF8FA);
-  }
-
+  .category-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--حدود); background: linear-gradient(135deg, white, #FFF8FA); }
   .category-title-row { display: flex; align-items: center; gap: 8px; flex: 1; }
   .category-emoji { font-size: 1.2rem; }
-
-  .category-name {
-    font-size: 1rem; font-weight: 700; color: var(--نص-داكن);
-    background: none; border: none; font-family: 'Tajawal';
-    cursor: pointer; flex: 1; text-align: right; padding: 0;
-  }
-
+  .category-name { font-size: 1rem; font-weight: 700; color: var(--نص-داكن); background: none; border: none; font-family: 'Tajawal'; cursor: pointer; flex: 1; text-align: right; padding: 0; }
   .category-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
   .cat-actions { display: flex; gap: 4px; }
-
-  .icon-btn {
-    width: 28px; height: 28px; border-radius: 8px; border: none;
-    background: none; cursor: pointer; display: flex; align-items: center;
-    justify-content: center; font-size: 0.85rem; color: var(--نص-فاتح); transition: all 0.15s;
-  }
-
+  .icon-btn { width: 28px; height: 28px; border-radius: 8px; border: none; background: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--نص-فاتح); transition: all 0.15s; }
   .icon-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
   .icon-btn.delete:hover { background: #FDECEA; color: #C0392B; }
-
   .items-list { padding: 0.5rem; }
-
-  .item-row {
-    display: flex; align-items: center; gap: 8px; padding: 6px 8px;
-    border-radius: 10px; transition: background 0.15s;
-  }
-
+  .item-row { display: flex; align-items: center; gap: 8px; padding: 6px 8px; border-radius: 10px; transition: background 0.15s; }
   .item-row:hover { background: #FFF5F7; }
-
-  .check-box {
-    width: 18px; height: 18px; border: 1.5px solid var(--حدود);
-    border-radius: 5px; cursor: pointer; flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s; background: white; font-size: 0.7rem; color: transparent;
-  }
-
+  .check-box { width: 18px; height: 18px; border: 1.5px solid var(--حدود); border-radius: 5px; cursor: pointer; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.15s; background: white; font-size: 0.7rem; color: transparent; }
   .check-box.checked { background: var(--أخضر); border-color: var(--أخضر); color: white; }
-
-  .item-text {
-    flex: 1; font-size: 0.9rem; color: var(--نص-داكن); background: none;
-    border: none; font-family: 'Tajawal'; padding: 2px 0; text-align: right; direction: rtl;
-  }
-
+  .item-text { flex: 1; font-size: 0.9rem; color: var(--نص-داكن); background: none; border: none; font-family: 'Tajawal'; padding: 2px 0; text-align: right; direction: rtl; }
   .item-text:focus { outline: none; border-bottom: 1px dashed var(--وردي); }
   .item-text.done { text-decoration: line-through; color: var(--نص-فاتح); }
-
-  .item-note {
-    font-size: 0.78rem; color: var(--نص-فاتح); background: none; border: none;
-    font-family: 'Tajawal'; text-align: right; direction: rtl; padding: 1px 0;
-    width: 100%; margin-right: 26px; display: none;
-  }
-
+  .item-note { font-size: 0.78rem; color: var(--نص-فاتح); background: none; border: none; font-family: 'Tajawal'; text-align: right; direction: rtl; padding: 1px 0; width: 100%; margin-right: 26px; display: none; }
   .item-note.visible { display: block; }
   .item-note:focus { outline: none; border-bottom: 1px dashed var(--بيج); }
-
-  .item-delete {
-    opacity: 0; width: 20px; height: 20px; border: none; background: none;
-    cursor: pointer; color: var(--نص-فاتح); font-size: 0.8rem;
-    transition: all 0.15s; flex-shrink: 0; border-radius: 4px;
-  }
-
+  .item-delete { opacity: 0; width: 20px; height: 20px; border: none; background: none; cursor: pointer; color: var(--نص-فاتح); font-size: 0.8rem; transition: all 0.15s; flex-shrink: 0; border-radius: 4px; }
   .item-row:hover .item-delete { opacity: 1; }
   .item-delete:hover { color: #C0392B; background: #FDECEA; }
-
   .add-item-row { display: flex; align-items: center; gap: 8px; padding: 6px 8px; margin-top: 2px; }
-
-  .add-item-input {
-    flex: 1; border: 1px dashed var(--حدود); border-radius: 8px; padding: 6px 10px;
-    font-family: 'Tajawal'; font-size: 0.88rem; background: #FFF8FA;
-    color: var(--نص-داكن); text-align: right; direction: rtl; transition: border-color 0.2s;
-  }
-
+  .add-item-input { flex: 1; border: 1px dashed var(--حدود); border-radius: 8px; padding: 6px 10px; font-family: 'Tajawal'; font-size: 0.88rem; background: #FFF8FA; color: var(--نص-داكن); text-align: right; direction: rtl; transition: border-color 0.2s; }
   .add-item-input:focus { outline: none; border-color: var(--وردي-غامق); background: white; }
   .add-item-input::placeholder { color: var(--نص-فاتح); }
-
-  .add-item-btn {
-    width: 30px; height: 30px; border-radius: 8px; border: none;
-    background: var(--وردي-فاتح); color: var(--وردي-عميق); cursor: pointer;
-    font-size: 1.1rem; display: flex; align-items: center; justify-content: center;
-    transition: all 0.15s; flex-shrink: 0;
-  }
-
+  .add-item-btn { width: 30px; height: 30px; border-radius: 8px; border: none; background: var(--وردي-فاتح); color: var(--وردي-عميق); cursor: pointer; font-size: 1.1rem; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
   .add-item-btn:hover { background: var(--وردي-عميق); color: white; }
-
-  .category-progress {
-    display: flex; align-items: center; gap: 8px; padding: 8px 1.25rem; border-top: 1px solid var(--حدود);
-  }
-
+  .category-progress { display: flex; align-items: center; gap: 8px; padding: 8px 1.25rem; border-top: 1px solid var(--حدود); }
   .progress-track { flex: 1; height: 4px; background: var(--وردي-فاتح); border-radius: 2px; overflow: hidden; }
   .progress-fill { height: 100%; background: linear-gradient(90deg, var(--أخضر), #8FAD60); border-radius: 2px; transition: width 0.4s ease; }
   .progress-text { font-size: 0.75rem; color: var(--نص-فاتح); white-space: nowrap; }
 
   /* MODAL */
-  .modal-overlay {
-    position: fixed; inset: 0; background: rgba(61,36,48,0.35);
-    display: flex; align-items: center; justify-content: center;
-    z-index: 200; opacity: 0; pointer-events: none;
-    transition: opacity 0.2s; backdrop-filter: blur(4px);
-  }
-
+  .modal-overlay { position: fixed; inset: 0; background: rgba(61,36,48,0.35); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s; backdrop-filter: blur(4px); }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
-
-  .modal {
-    background: white; border-radius: 20px; padding: 2rem; width: 90%; max-width: 420px;
-    transform: translateY(20px); transition: transform 0.2s; direction: rtl; border: 1px solid var(--حدود);
-  }
-
+  .modal { background: white; border-radius: 20px; padding: 2rem; width: 90%; max-width: 420px; transform: translateY(20px); transition: transform 0.2s; direction: rtl; border: 1px solid var(--حدود); }
   .modal-overlay.open .modal { transform: translateY(0); }
   .modal h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--نص-داكن); }
   .modal label { display: block; font-size: 0.85rem; color: var(--نص-متوسط); margin-bottom: 4px; margin-top: 12px; }
-
-  .modal input {
-    width: 100%; padding: 10px 12px; border: 1px solid var(--حدود);
-    border-radius: 10px; font-family: 'Tajawal'; font-size: 0.95rem;
-    background: white; color: var(--نص-داكن); text-align: right; direction: rtl;
-  }
-
+  .modal input { width: 100%; padding: 10px 12px; border: 1px solid var(--حدود); border-radius: 10px; font-family: 'Tajawal'; font-size: 0.95rem; background: white; color: var(--نص-داكن); text-align: right; direction: rtl; }
   .modal input:focus { outline: none; border-color: var(--وردي-غامق); }
-
   .emoji-grid { display: grid; grid-template-columns: repeat(8, 1fr); gap: 6px; margin-top: 8px; }
-
-  .emoji-opt {
-    padding: 6px; border-radius: 8px; border: 1px solid var(--حدود);
-    cursor: pointer; text-align: center; font-size: 1.1rem; background: white; transition: all 0.15s;
-  }
-
+  .emoji-opt { padding: 6px; border-radius: 8px; border: 1px solid var(--حدود); cursor: pointer; text-align: center; font-size: 1.1rem; background: white; transition: all 0.15s; }
   .emoji-opt:hover, .emoji-opt.selected { background: var(--وردي-فاتح); border-color: var(--وردي-غامق); }
-
   .modal-actions { display: flex; gap: 8px; margin-top: 1.5rem; justify-content: flex-end; }
-
-  .btn-primary {
-    padding: 10px 24px; background: var(--وردي-عميق); color: white; border: none;
-    border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s;
-  }
-
+  .btn-primary { padding: 10px 24px; background: var(--وردي-عميق); color: white; border: none; border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; }
   .btn-primary:hover { background: var(--وردي-غامق); }
-
-  .btn-secondary {
-    padding: 10px 18px; background: none; color: var(--نص-متوسط);
-    border: 1px solid var(--حدود); border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; cursor: pointer; transition: all 0.2s;
-  }
-
+  .btn-secondary { padding: 10px 18px; background: none; color: var(--نص-متوسط); border: 1px solid var(--حدود); border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; cursor: pointer; transition: all 0.2s; }
   .btn-secondary:hover { background: var(--وردي-فاتح); }
 
   .empty-state { text-align: center; padding: 3rem 2rem; color: var(--نص-فاتح); grid-column: 1 / -1; }
@@ -584,61 +346,21 @@
   .empty-state p { font-size: 0.95rem; }
 
   /* FOOTER */
-  footer {
-    background: white;
-    border-top: 1px solid var(--حدود);
-    padding: 2.5rem 2rem;
-    text-align: center;
-    margin-top: auto;
-  }
-
-  .footer-names {
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
-    font-size: 1.8rem;
-    color: var(--وردي-عميق);
-    margin-bottom: 0.4rem;
-    letter-spacing: 2px;
-  }
-
-  .footer-heart {
-    font-size: 1rem;
-    color: var(--وردي);
-    margin: 0 10px;
-  }
-
-  .footer-date {
-    font-size: 0.85rem;
-    color: var(--نص-فاتح);
-    font-weight: 300;
-    margin-bottom: 1rem;
-  }
-
-  .footer-divider {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    margin-bottom: 1rem;
-  }
-
+  footer { background: white; border-top: 1px solid var(--حدود); padding: 2.5rem 2rem; text-align: center; margin-top: auto; }
+  .footer-names { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--وردي-عميق); margin-bottom: 0.4rem; letter-spacing: 2px; }
+  .footer-heart { font-size: 1rem; color: var(--وردي); margin: 0 10px; }
+  .footer-date { font-size: 0.85rem; color: var(--نص-فاتح); font-weight: 300; margin-bottom: 1rem; }
+  .footer-divider { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 1rem; }
   .footer-divider-line { width: 60px; height: 1px; background: var(--حدود); }
   .footer-divider-icon { color: var(--وردي); font-size: 0.9rem; }
-
-  .footer-quote {
-    font-size: 0.88rem;
-    color: var(--نص-متوسط);
-    font-weight: 300;
-    font-style: italic;
-  }
+  .footer-quote { font-size: 0.88rem; color: var(--نص-متوسط); font-weight: 300; font-style: italic; }
 
   ::-webkit-scrollbar { width: 4px; }
   ::-webkit-scrollbar-track { background: transparent; }
   ::-webkit-scrollbar-thumb { background: var(--وردي-فاتح); border-radius: 2px; }
 
   @media (max-width: 600px) {
-    .site-header { padding: 0 1rem; height: auto; padding: 0.75rem 1rem; flex-wrap: wrap; gap: 8px; }
-    nav { gap: 4px; }
+    .site-header { padding: 0.75rem 1rem; flex-wrap: wrap; gap: 8px; height: auto; }
     .nav-btn { padding: 5px 10px; font-size: 0.78rem; }
     .hero h1 { font-size: 1.6rem; }
     .event-cards { padding: 1rem; gap: 0.75rem; }
@@ -646,8 +368,6 @@
     .categories-grid, .links-grid { padding: 0 1rem 2rem; }
     .page-header { padding: 1.5rem 1rem 0.75rem; flex-wrap: wrap; gap: 10px; }
     .page-tabs { padding: 0 1rem 1rem; }
-    .add-link-row { flex-wrap: wrap; }
-    .add-link-name, .add-link-url { min-width: 100px; }
   }
 </style>
 </head>
@@ -670,7 +390,6 @@
     <h1>تخطيط مناسباتي 🤍</h1>
     <p>كل تفاصيل أفراحك في مكان واحد — منظمة، واضحة، وجاهزة تشاركينها</p>
   </div>
-
   <div class="event-cards">
     <div class="event-group">
       <div class="event-group-label">الحفلة الأولى</div>
@@ -702,70 +421,49 @@
   </div>
 </div>
 
-<!-- MAWASA PAGE -->
+<!-- MAWASA -->
 <div id="mawasa-view" class="main-content">
   <div class="page-header">
-    <div class="page-title-group">
-      <h2>🤍 المواساة</h2>
-      <p>القوائم والروابط</p>
-    </div>
+    <div class="page-title-group"><h2>🤍 المواساة</h2><p>القوائم والروابط</p></div>
     <button class="add-btn" id="add-btn-mawasa" onclick="handleAddBtn('mawasa')">+ إضافة</button>
   </div>
   <div class="page-tabs">
     <button class="tab-btn active" onclick="switchTab('mawasa','list')">📋 القوائم</button>
     <button class="tab-btn" onclick="switchTab('mawasa','links')">🔗 الروابط</button>
   </div>
-  <div id="tab-mawasa-list" class="tab-content active">
-    <div class="categories-grid" id="grid-mawasa"></div>
-  </div>
-  <div id="tab-mawasa-links" class="tab-content">
-    <div class="links-grid" id="links-mawasa"></div>
-  </div>
+  <div id="tab-mawasa-list" class="tab-content active"><div class="categories-grid" id="grid-mawasa"></div></div>
+  <div id="tab-mawasa-links" class="tab-content"><div class="links-grid" id="links-mawasa"></div></div>
 </div>
 
-<!-- AQD PAGE -->
+<!-- AQD -->
 <div id="aqd-view" class="main-content">
   <div class="page-header">
-    <div class="page-title-group">
-      <h2>💍 عقد القران</h2>
-      <p>القوائم والروابط</p>
-    </div>
+    <div class="page-title-group"><h2>💍 عقد القران</h2><p>القوائم والروابط</p></div>
     <button class="add-btn" id="add-btn-aqd" onclick="handleAddBtn('aqd')">+ إضافة</button>
   </div>
   <div class="page-tabs">
     <button class="tab-btn active" onclick="switchTab('aqd','list')">📋 القوائم</button>
     <button class="tab-btn" onclick="switchTab('aqd','links')">🔗 الروابط</button>
   </div>
-  <div id="tab-aqd-list" class="tab-content active">
-    <div class="categories-grid" id="grid-aqd"></div>
-  </div>
-  <div id="tab-aqd-links" class="tab-content">
-    <div class="links-grid" id="links-aqd"></div>
-  </div>
+  <div id="tab-aqd-list" class="tab-content active"><div class="categories-grid" id="grid-aqd"></div></div>
+  <div id="tab-aqd-links" class="tab-content"><div class="links-grid" id="links-aqd"></div></div>
 </div>
 
-<!-- KHOTBA PAGE -->
+<!-- KHOTBA -->
 <div id="khotba-view" class="main-content">
   <div class="page-header">
-    <div class="page-title-group">
-      <h2>🌸 الخطوبة الشعبية</h2>
-      <p>القوائم والروابط</p>
-    </div>
+    <div class="page-title-group"><h2>🌸 الخطوبة الشعبية</h2><p>القوائم والروابط</p></div>
     <button class="add-btn" id="add-btn-khotba" onclick="handleAddBtn('khotba')">+ إضافة</button>
   </div>
   <div class="page-tabs">
     <button class="tab-btn active" onclick="switchTab('khotba','list')">📋 القوائم</button>
     <button class="tab-btn" onclick="switchTab('khotba','links')">🔗 الروابط</button>
   </div>
-  <div id="tab-khotba-list" class="tab-content active">
-    <div class="categories-grid" id="grid-khotba"></div>
-  </div>
-  <div id="tab-khotba-links" class="tab-content">
-    <div class="links-grid" id="links-khotba"></div>
-  </div>
+  <div id="tab-khotba-list" class="tab-content active"><div class="categories-grid" id="grid-khotba"></div></div>
+  <div id="tab-khotba-links" class="tab-content"><div class="links-grid" id="links-khotba"></div></div>
 </div>
 
-<!-- MODAL - قائمة جديدة -->
+<!-- MODAL قائمة -->
 <div class="modal-overlay" id="modal-cat" onclick="closeModalOutside(event,'modal-cat')">
   <div class="modal">
     <h3>🌸 قائمة جديدة</h3>
@@ -780,12 +478,12 @@
   </div>
 </div>
 
-<!-- MODAL - قسم روابط جديد -->
+<!-- MODAL قسم روابط -->
 <div class="modal-overlay" id="modal-linksec" onclick="closeModalOutside(event,'modal-linksec')">
   <div class="modal">
     <h3>🔗 قسم روابط جديد</h3>
     <label>اسم القسم</label>
-    <input type="text" id="linksec-name-input" placeholder="مثال: صالونات الشعر" />
+    <input type="text" id="linksec-name-input" placeholder="مثال: فساتين" />
     <label>أيقونة</label>
     <div class="emoji-grid" id="emoji-grid-link"></div>
     <div class="modal-actions">
@@ -795,8 +493,20 @@
   </div>
 </div>
 
+<!-- FOOTER -->
+<footer>
+  <div class="footer-names">فهد <span class="footer-heart">♡</span> أنفال</div>
+  <div class="footer-date">ربيع ٢٠٢٦ 🌸</div>
+  <div class="footer-divider">
+    <div class="footer-divider-line"></div>
+    <div class="footer-divider-icon">✦</div>
+    <div class="footer-divider-line"></div>
+  </div>
+  <div class="footer-quote">الله يتمم بالخير ويبارك لكم 🤍</div>
+</footer>
+
 <script>
-const STORAGE_KEY = 'wedding_planner_v3';
+const STORAGE_KEY = 'wedding_planner_v4';
 const EMOJIS = ['☕','🍽️','🎂','🌸','💐','👗','👠','💄','💎','✨','🪞','📸','🎵','🎀','🕯️','🧴','💌','📋','🛍️','🎁','🚗','🏠','💍','🌹','🫧','🎊','🍬','☁️'];
 
 let data = loadData();
@@ -822,16 +532,12 @@ function loadData() {
           { id: uid(), text: 'فستان أبيض دانتيل', note: 'جاهز أو خياطة', done: false },
           { id: uid(), text: 'الحذاء', note: 'أبيض أو شامبين', done: false },
         ]},
-        { id: uid(), emoji: '✨', name: 'الميكب والشعر', items: [
-          { id: uid(), text: 'حجز موعد صالون', note: 'احجزي مبكر', done: false },
-          { id: uid(), text: 'تجربة اللوك قبل اليوم', note: '', done: false },
-        ]},
       ],
       links: [
-        { id: uid(), emoji: '✂️', name: 'صالونات الشعر', items: [
-          { id: uid(), name: 'مثال: صالون X', url: 'https://instagram.com' },
+        { id: uid(), emoji: '👗', name: 'فساتين', items: [
+          { id: uid(), name: 'فستان أحمر من VIP Fashion', price: '265 BHD', desc: 'فستان طويل دانتيل أحمر', url: 'https://vipfashio1.com/ar' },
         ]},
-        { id: uid(), emoji: '🛍️', name: 'محلات الفساتين', items: [] },
+        { id: uid(), emoji: '✂️', name: 'صالونات الشعر', items: [] },
       ]
     },
     aqd: { lists: [], links: [] },
@@ -846,17 +552,14 @@ function saveData() {
 
 function uid() { return Math.random().toString(36).slice(2,9); }
 
-// NAV
 function showPage(page) {
   document.querySelectorAll('.nav-btn').forEach((b,i) => {
     b.classList.toggle('active', ['home','mawasa','aqd','khotba'][i] === page);
   });
-  document.getElementById('home-view').classList.toggle('hidden', page !== 'home');
   document.getElementById('home-view').style.display = page === 'home' ? 'block' : 'none';
   document.querySelectorAll('.main-content').forEach(el => el.classList.remove('active'));
   if (page !== 'home') {
-    const view = document.getElementById(page + '-view');
-    view.classList.add('active');
+    document.getElementById(page + '-view').classList.add('active');
     renderAll(page);
   }
   ['mawasa','aqd','khotba'].forEach(e => {
@@ -865,15 +568,13 @@ function showPage(page) {
   });
 }
 
-// TABS
 function switchTab(eventKey, tab) {
   currentTab[eventKey] = tab;
   const tabs = document.querySelectorAll(`#${eventKey}-view .tab-btn`);
   tabs.forEach((b,i) => b.classList.toggle('active', i === (tab === 'list' ? 0 : 1)));
   document.getElementById('tab-' + eventKey + '-list').classList.toggle('active', tab === 'list');
   document.getElementById('tab-' + eventKey + '-links').classList.toggle('active', tab === 'links');
-  const btn = document.getElementById('add-btn-' + eventKey);
-  btn.textContent = tab === 'list' ? '+ قائمة جديدة' : '+ قسم روابط';
+  document.getElementById('add-btn-' + eventKey).textContent = tab === 'list' ? '+ قائمة جديدة' : '+ قسم روابط';
 }
 
 function handleAddBtn(eventKey) {
@@ -882,7 +583,6 @@ function handleAddBtn(eventKey) {
   else openModalLink();
 }
 
-// RENDER ALL
 function renderAll(eventKey) {
   renderGrid(eventKey);
   renderLinks(eventKey);
@@ -923,9 +623,7 @@ function renderCategory(eventKey, cat) {
           <span class="category-emoji">${cat.emoji}</span>
           <input class="category-name" value="${escHtml(cat.name)}" onchange="updateCatName('${eventKey}','${cat.id}',this.value)">
         </div>
-        <div class="cat-actions">
-          <button class="icon-btn delete" onclick="deleteCategory('${eventKey}','${cat.id}')">🗑</button>
-        </div>
+        <div class="cat-actions"><button class="icon-btn delete" onclick="deleteCategory('${eventKey}','${cat.id}')">🗑</button></div>
       </div>
       <div class="items-list">${itemsHtml}
         <div class="add-item-row">
@@ -953,18 +651,31 @@ function renderLinks(eventKey) {
 }
 
 function renderLinkSection(eventKey, sec) {
-  const linksHtml = (sec.items||[]).map(lnk => `
-    <div class="link-row" id="lrow-${lnk.id}">
-      <div class="link-icon">${sec.emoji}</div>
-      <div class="link-info">
-        <input class="link-name-input" value="${escHtml(lnk.name)}"
-          onchange="updateLinkName('${eventKey}','${sec.id}','${lnk.id}',this.value)" placeholder="اسم الرابط">
-        <input class="link-url-input" value="${escHtml(lnk.url)}"
-          onchange="updateLinkUrl('${eventKey}','${sec.id}','${lnk.id}',this.value)" placeholder="https://...">
+  const cardsHtml = (sec.items||[]).map(lnk => `
+    <div class="link-card" id="lcard-${lnk.id}">
+      <button class="link-card-delete" onclick="deleteLink('${eventKey}','${sec.id}','${lnk.id}')">✕</button>
+      <div class="link-card-top">
+        <div class="link-card-icon">${sec.emoji}</div>
+        <div class="link-card-fields">
+          <input class="link-field-name" value="${escHtml(lnk.name)}"
+            onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','name',this.value)"
+            placeholder="الاسم">
+          <input class="link-field-price" value="${escHtml(lnk.price||'')}"
+            onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','price',this.value)"
+            placeholder="السعر (مثال: 50 BHD)">
+          <input class="link-field-desc" value="${escHtml(lnk.desc||'')}"
+            onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','desc',this.value)"
+            placeholder="وصف قصير...">
+        </div>
       </div>
-      ${lnk.url ? `<a class="link-open-btn" href="${escHtml(lnk.url)}" target="_blank" title="افتح الرابط">↗</a>` : '<span style="width:26px"></span>'}
-      <button class="link-delete-btn" onclick="deleteLink('${eventKey}','${sec.id}','${lnk.id}')">✕</button>
+      <div class="link-card-bottom">
+        <input class="link-field-url" value="${escHtml(lnk.url||'')}"
+          onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','url',this.value)"
+          placeholder="الرابط https://...">
+        ${lnk.url ? `<a class="link-open-btn" href="${escHtml(lnk.url)}" target="_blank">↗</a>` : ''}
+      </div>
     </div>`).join('');
+
   return `
     <div class="link-section-card" id="lsec-${sec.id}">
       <div class="link-section-header">
@@ -974,12 +685,15 @@ function renderLinkSection(eventKey, sec) {
         </div>
         <button class="icon-btn delete" onclick="deleteLinkSection('${eventKey}','${sec.id}')">🗑</button>
       </div>
-      <div class="link-items">${linksHtml}
-        <div class="add-link-row">
-          <input class="add-link-name" id="aln-${sec.id}" placeholder="الاسم">
-          <input class="add-link-url" id="alu-${sec.id}" placeholder="https://..."
+      <div class="link-items">
+        ${cardsHtml}
+        <div class="add-link-form">
+          <input id="aln-${sec.id}" placeholder="الاسم *">
+          <input id="alp-${sec.id}" placeholder="السعر (اختياري)">
+          <input id="ald-${sec.id}" placeholder="الوصف (اختياري)">
+          <input id="alu-${sec.id}" placeholder="الرابط https://... (اختياري)" class="ltr-input"
             onkeydown="if(event.key==='Enter') addLink('${eventKey}','${sec.id}')">
-          <button class="add-link-btn" onclick="addLink('${eventKey}','${sec.id}')">+</button>
+          <button class="add-link-form-btn" onclick="addLink('${eventKey}','${sec.id}')">+ إضافة</button>
         </div>
       </div>
     </div>`;
@@ -987,11 +701,10 @@ function renderLinkSection(eventKey, sec) {
 
 function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
 
-// MODAL CAT
 function openModal(id) {
   selectedEmoji = '📋';
   document.getElementById('cat-name-input').value = '';
-  buildEmojiGrid('emoji-grid', selectedEmoji, e => { selectedEmoji = e; });
+  buildEmojiGrid('emoji-grid');
   document.getElementById(id).classList.add('open');
   setTimeout(() => document.getElementById('cat-name-input').focus(), 200);
 }
@@ -999,7 +712,7 @@ function openModal(id) {
 function openModalLink() {
   selectedEmojiLink = '🔗';
   document.getElementById('linksec-name-input').value = '';
-  buildEmojiGrid('emoji-grid-link', selectedEmojiLink, e => { selectedEmojiLink = e; });
+  buildEmojiGridLink('emoji-grid-link');
   document.getElementById('modal-linksec').classList.add('open');
   setTimeout(() => document.getElementById('linksec-name-input').focus(), 200);
 }
@@ -1007,16 +720,24 @@ function openModalLink() {
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 function closeModalOutside(e, id) { if(e.target.id === id) closeModal(id); }
 
-function buildEmojiGrid(gridId, selected, onSelect) {
+function buildEmojiGrid(gridId) {
   document.getElementById(gridId).innerHTML = EMOJIS.map(e =>
-    `<div class="emoji-opt ${e===selected?'selected':''}" onclick="selectEmojiIn('${gridId}','${e}')">${e}</div>`
-  ).join('');
+    `<div class="emoji-opt ${e===selectedEmoji?'selected':''}" onclick="selectEmojiCat('${e}')">${e}</div>`).join('');
 }
 
-function selectEmojiIn(gridId, e) {
-  if (gridId === 'emoji-grid') selectedEmoji = e;
-  else selectedEmojiLink = e;
-  document.querySelectorAll('#' + gridId + ' .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
+function buildEmojiGridLink(gridId) {
+  document.getElementById(gridId).innerHTML = EMOJIS.map(e =>
+    `<div class="emoji-opt ${e===selectedEmojiLink?'selected':''}" onclick="selectEmojiLink('${e}')">${e}</div>`).join('');
+}
+
+function selectEmojiCat(e) {
+  selectedEmoji = e;
+  document.querySelectorAll('#emoji-grid .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
+}
+
+function selectEmojiLink(e) {
+  selectedEmojiLink = e;
+  document.querySelectorAll('#emoji-grid-link .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
 }
 
 function addCategory() {
@@ -1104,31 +825,24 @@ function updateProgressBar(eventKey, catId) {
   }
 }
 
-// LINK ACTIONS
 function addLink(eventKey, secId) {
-  const nameEl = document.getElementById('aln-' + secId);
-  const urlEl = document.getElementById('alu-' + secId);
-  const name = nameEl.value.trim();
-  const url = urlEl.value.trim();
-  if (!name) { nameEl.focus(); return; }
+  const name = document.getElementById('aln-' + secId).value.trim();
+  const price = document.getElementById('alp-' + secId).value.trim();
+  const desc = document.getElementById('ald-' + secId).value.trim();
+  const url = document.getElementById('alu-' + secId).value.trim();
+  if (!name) { document.getElementById('aln-' + secId).focus(); return; }
   const sec = data[eventKey].links.find(s => s.id === secId);
   if (sec) {
-    sec.items.push({ id: uid(), name, url });
+    sec.items.push({ id: uid(), name, price, desc, url });
     saveData(); renderLinks(eventKey);
     setTimeout(() => { const el = document.getElementById('aln-' + secId); if(el) el.focus(); }, 50);
   }
 }
 
-function updateLinkName(eventKey, secId, lnkId, val) {
+function updateLinkField(eventKey, secId, lnkId, field, val) {
   const sec = data[eventKey].links.find(s => s.id === secId);
   const lnk = sec && sec.items.find(l => l.id === lnkId);
-  if (lnk) { lnk.name = val; saveData(); }
-}
-
-function updateLinkUrl(eventKey, secId, lnkId, val) {
-  const sec = data[eventKey].links.find(s => s.id === secId);
-  const lnk = sec && sec.items.find(l => l.id === lnkId);
-  if (lnk) { lnk.url = val; saveData(); renderLinks(eventKey); }
+  if (lnk) { lnk[field] = val; saveData(); }
 }
 
 function updateLinkSecName(eventKey, secId, val) {
@@ -1147,23 +861,20 @@ function deleteLinkSection(eventKey, secId) {
   saveData(); renderLinks(eventKey);
 }
 
-// COUNTS
 function updateHomeCounts() {
   ['mawasa','aqd','khotba'].forEach(key => {
     const lists = data[key].lists || [];
     const links = data[key].links || [];
-    const totalItems = lists.reduce((s,c) => s + c.items.length, 0);
-    const totalLinks = links.reduce((s,c) => s + c.items.length, 0);
     const elList = document.getElementById('count-' + key + '-list');
     const elLinks = document.getElementById('count-' + key + '-links');
-    if (elList) elList.textContent = totalItems + ' عنصر';
-    if (elLinks) elLinks.textContent = totalLinks + ' رابط';
+    if (elList) elList.textContent = lists.reduce((s,c) => s + c.items.length, 0) + ' عنصر';
+    if (elLinks) elLinks.textContent = links.reduce((s,c) => s + c.items.length, 0) + ' رابط';
   });
 }
 
-// INIT
 document.getElementById('home-view').style.display = 'block';
 updateHomeCounts();
 </script>
 </body>
 </html>
+
