@@ -492,13 +492,11 @@
   </div>
 </div>
 
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
-<script>
-const FIREBASE_URL = 'https://wedding-planner-46a2b-default-rtdb.firebaseio.com';
-const app = firebase.initializeApp({ databaseURL: FIREBASE_URL });
-const db = firebase.database();
 
+<script>
+// ── FIREBASE SETUP ──
+firebase.initializeApp({ databaseURL: 'https://wedding-planner-46a2b-default-rtdb.firebaseio.com' });
+const db = firebase.database();
   
 const STORAGE_KEY = 'wedding_planner_v4';
 const EMOJIS = ['☕','🍽️','🎂','🌸','💐','👗','👠','💄','💎','✨','🪞','📸','🎵','🎀','🕯️','🧴','💌','📋','🛍️','🎁','🚗','🏠','💍','🌹','🫧','🎊','🍬','☁️'];
