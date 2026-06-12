@@ -26,35 +26,16 @@
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  body {
-    font-family: 'Tajawal', sans-serif;
-    background: #FFF0F3;
-    color: var(--نص-داكن);
-    min-height: 100vh;
-    direction: rtl;
-    display: flex;
-    flex-direction: column;
-  }
+  body { font-family: 'Tajawal', sans-serif; background: #FFF0F3; color: var(--نص-داكن); min-height: 100vh; direction: rtl; display: flex; flex-direction: column; }
 
-  .site-header {
-    background: white;
-    border-bottom: 1px solid var(--حدود);
-    padding: 0 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 70px;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    box-shadow: 0 2px 20px var(--ظل);
-  }
+  #loader { position: fixed; inset: 0; background: rgba(255,240,243,0.95); display: flex; align-items: center; justify-content: center; z-index: 999; font-family: 'Tajawal', sans-serif; font-size: 1.1rem; color: #B85C6E; gap: 10px; flex-direction: column; }
+  #loader .loader-icon { font-size: 2rem; animation: spin 2s linear infinite; }
+  @keyframes spin { 0%,100% { transform: scale(1); } 50% { transform: scale(1.2); } }
 
+  .site-header { background: white; border-bottom: 1px solid var(--حدود); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 70px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 20px var(--ظل); }
   .logo { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: var(--وردي-عميق); display: flex; align-items: center; gap: 8px; }
   .logo span { font-family: 'Tajawal'; font-style: normal; font-size: 0.85rem; color: var(--نص-فاتح); font-weight: 400; }
-
   nav { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
-
   .nav-btn { padding: 7px 14px; border-radius: 50px; border: 1px solid transparent; background: none; font-family: 'Tajawal'; font-size: 0.85rem; font-weight: 500; color: var(--نص-متوسط); cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .nav-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
   .nav-btn.active { background: var(--وردي-عميق); color: white; border-color: var(--وردي-عميق); }
@@ -65,10 +46,8 @@
   .hero p { color: var(--نص-فاتح); font-size: 1rem; font-weight: 300; }
 
   .event-cards { display: flex; gap: 1rem; justify-content: center; padding: 2rem; flex-wrap: wrap; }
-
   .event-group { display: flex; flex-direction: column; gap: 0.6rem; min-width: 160px; }
   .event-group-label { text-align: center; font-size: 0.75rem; color: var(--نص-فاتح); font-weight: 500; letter-spacing: 1px; }
-
   .event-card { background: white; border: 1px solid var(--حدود); border-radius: 16px; padding: 1.5rem 2rem; cursor: pointer; transition: all 0.25s; text-align: center; position: relative; overflow: hidden; }
   .event-card::before { content: ''; position: absolute; top: 0; right: 0; left: 0; height: 3px; background: var(--حدود); transition: background 0.2s; }
   .event-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px var(--ظل); }
@@ -81,14 +60,11 @@
   .main-content { display: none; flex: 1; }
   .main-content.active { display: block; animation: fadeIn 0.3s ease; }
   #home-view { flex: 1; }
-  #home-view.hidden { display: none; }
-
   @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
   .page-header { display: flex; align-items: center; justify-content: space-between; padding: 2rem 2rem 1rem; max-width: 900px; margin: 0 auto; }
   .page-title-group h2 { font-size: 1.6rem; font-weight: 700; color: var(--نص-داكن); }
   .page-title-group p { font-size: 0.9rem; color: var(--نص-فاتح); margin-top: 2px; }
-
   .add-btn { display: flex; align-items: center; gap: 6px; padding: 10px 20px; background: var(--وردي-عميق); color: white; border: none; border-radius: 50px; font-family: 'Tajawal'; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: all 0.2s; white-space: nowrap; }
   .add-btn:hover { background: var(--وردي-غامق); transform: translateY(-1px); }
 
@@ -96,198 +72,51 @@
   .tab-btn { padding: 8px 20px; border-radius: 50px; border: 1px solid var(--حدود); background: white; font-family: 'Tajawal'; font-size: 0.88rem; font-weight: 500; color: var(--نص-متوسط); cursor: pointer; transition: all 0.2s; }
   .tab-btn:hover { background: var(--وردي-فاتح); color: var(--وردي-عميق); }
   .tab-btn.active { background: var(--وردي-عميق); color: white; border-color: var(--وردي-عميق); }
-
   .tab-content { display: none; }
   .tab-content.active { display: block; }
 
   .categories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; padding: 0 2rem 3rem; max-width: 900px; margin: 0 auto; }
-
-  /* LINKS GRID */
   .links-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; padding: 0 2rem 3rem; max-width: 900px; margin: 0 auto; }
 
   .link-section-card { background: white; border: 1px solid var(--حدود); border-radius: 16px; overflow: hidden; }
-
   .link-section-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--حدود); background: linear-gradient(135deg, white, #FFF8FA); }
   .link-section-title-row { display: flex; align-items: center; gap: 8px; flex: 1; }
   .link-section-name { font-size: 1rem; font-weight: 700; color: var(--نص-داكن); background: none; border: none; font-family: 'Tajawal'; flex: 1; text-align: right; padding: 0; cursor: pointer; }
   .link-section-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
-
   .link-items { padding: 0.5rem; }
 
-  /* بطاقة الرابط الجديدة */
-  .link-card {
-    background: #FFFBFC;
-    border: 1px solid var(--حدود);
-    border-radius: 12px;
-    padding: 12px;
-    margin-bottom: 8px;
-    transition: box-shadow 0.15s;
-    position: relative;
-  }
-
+  .link-card { background: #FFFBFC; border: 1px solid var(--حدود); border-radius: 12px; padding: 12px; margin-bottom: 8px; transition: box-shadow 0.15s; position: relative; }
   .link-card:hover { box-shadow: 0 2px 12px var(--ظل); }
-
-  .link-card-top {
-    display: flex;
-    align-items: flex-start;
-    gap: 10px;
-    margin-bottom: 8px;
-  }
-
-  .link-card-icon {
-    width: 34px; height: 34px;
-    border-radius: 8px;
-    background: var(--وردي-فاتح);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
+  .link-card-top { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 8px; }
+  .link-card-icon { width: 34px; height: 34px; border-radius: 8px; background: var(--وردي-فاتح); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; margin-top: 2px; }
   .link-card-fields { flex: 1; display: flex; flex-direction: column; gap: 4px; }
-
-  .link-field-name {
-    font-size: 0.92rem;
-    font-weight: 700;
-    color: var(--نص-داكن);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    text-align: right;
-    padding: 2px 0;
-    width: 100%;
-    direction: rtl;
-  }
-
+  .link-field-name { font-size: 0.92rem; font-weight: 700; color: var(--نص-داكن); background: none; border: none; font-family: 'Tajawal'; text-align: right; padding: 2px 0; width: 100%; direction: rtl; }
   .link-field-name:focus { outline: none; border-bottom: 1px dashed var(--وردي-غامق); }
-
-  .link-field-price {
-    font-size: 0.82rem;
-    font-weight: 600;
-    color: var(--وردي-عميق);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    text-align: right;
-    padding: 2px 0;
-    width: 100%;
-    direction: rtl;
-  }
-
+  .link-field-price { font-size: 0.82rem; font-weight: 600; color: var(--وردي-عميق); background: none; border: none; font-family: 'Tajawal'; text-align: right; padding: 2px 0; width: 100%; direction: rtl; }
   .link-field-price:focus { outline: none; border-bottom: 1px dashed var(--وردي); }
   .link-field-price::placeholder { color: var(--نص-فاتح); font-weight: 400; }
-
-  .link-field-desc {
-    font-size: 0.8rem;
-    color: var(--نص-متوسط);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    text-align: right;
-    padding: 2px 0;
-    width: 100%;
-    direction: rtl;
-    resize: none;
-    line-height: 1.4;
-  }
-
+  .link-field-desc { font-size: 0.8rem; color: var(--نص-متوسط); background: none; border: none; font-family: 'Tajawal'; text-align: right; padding: 2px 0; width: 100%; direction: rtl; resize: none; line-height: 1.4; }
   .link-field-desc:focus { outline: none; border-bottom: 1px dashed var(--بيج); }
   .link-field-desc::placeholder { color: var(--نص-فاتح); }
-
-  .link-card-bottom {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    margin-top: 6px;
-    padding-top: 8px;
-    border-top: 1px dashed var(--حدود);
-  }
-
-  .link-field-url {
-    flex: 1;
-    font-size: 0.78rem;
-    color: var(--وردي-غامق);
-    background: none;
-    border: none;
-    font-family: 'Tajawal';
-    padding: 2px 0;
-    direction: ltr;
-    text-align: left;
-  }
-
+  .link-card-bottom { display: flex; align-items: center; gap: 6px; margin-top: 6px; padding-top: 8px; border-top: 1px dashed var(--حدود); }
+  .link-field-url { flex: 1; font-size: 0.78rem; color: var(--وردي-غامق); background: none; border: none; font-family: 'Tajawal'; padding: 2px 0; direction: ltr; text-align: left; }
   .link-field-url:focus { outline: none; border-bottom: 1px dashed var(--وردي-فاتح); }
   .link-field-url::placeholder { color: var(--نص-فاتح); direction: rtl; text-align: right; }
-
-  .link-open-btn {
-    width: 28px; height: 28px; border-radius: 7px; border: none;
-    background: var(--وردي-فاتح); color: var(--وردي-عميق); cursor: pointer;
-    font-size: 0.85rem; display: flex; align-items: center; justify-content: center;
-    flex-shrink: 0; transition: all 0.15s; text-decoration: none;
-  }
-
+  .link-open-btn { width: 28px; height: 28px; border-radius: 7px; border: none; background: var(--وردي-فاتح); color: var(--وردي-عميق); cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.15s; text-decoration: none; }
   .link-open-btn:hover { background: var(--وردي-عميق); color: white; }
-
-  .link-card-delete {
-    position: absolute;
-    top: 8px; left: 8px;
-    width: 22px; height: 22px;
-    border: none; background: none; cursor: pointer;
-    color: var(--نص-فاتح); font-size: 0.75rem;
-    border-radius: 4px; transition: all 0.15s;
-    opacity: 0;
-    display: flex; align-items: center; justify-content: center;
-  }
-
+  .link-card-delete { position: absolute; top: 8px; left: 8px; width: 22px; height: 22px; border: none; background: none; cursor: pointer; color: var(--نص-فاتح); font-size: 0.75rem; border-radius: 4px; transition: all 0.15s; opacity: 0; display: flex; align-items: center; justify-content: center; }
   .link-card:hover .link-card-delete { opacity: 1; }
   .link-card-delete:hover { color: #C0392B; background: #FDECEA; }
 
-  /* فورم إضافة رابط جديد */
-  .add-link-form {
-    background: var(--وردي-فاتح);
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 6px;
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-  }
-
-  .add-link-form input {
-    width: 100%;
-    border: 1px dashed var(--حدود);
-    border-radius: 8px;
-    padding: 6px 10px;
-    font-family: 'Tajawal';
-    font-size: 0.82rem;
-    background: white;
-    color: var(--نص-داكن);
-    text-align: right;
-    direction: rtl;
-  }
-
+  .add-link-form { background: var(--وردي-فاتح); border-radius: 10px; padding: 10px; margin-top: 6px; display: flex; flex-direction: column; gap: 6px; }
+  .add-link-form input { width: 100%; border: 1px dashed var(--حدود); border-radius: 8px; padding: 6px 10px; font-family: 'Tajawal'; font-size: 0.82rem; background: white; color: var(--نص-داكن); text-align: right; direction: rtl; }
   .add-link-form input:focus { outline: none; border-color: var(--وردي-غامق); }
   .add-link-form input::placeholder { color: var(--نص-فاتح); }
-
   .add-link-form input.ltr-input { direction: ltr; text-align: left; }
   .add-link-form input.ltr-input::placeholder { direction: rtl; text-align: right; }
-
-  .add-link-form-btn {
-    width: 100%;
-    padding: 7px;
-    background: var(--وردي-عميق);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Tajawal';
-    font-size: 0.85rem;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.15s;
-  }
-
+  .add-link-form-btn { width: 100%; padding: 7px; background: var(--وردي-عميق); color: white; border: none; border-radius: 8px; font-family: 'Tajawal'; font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: all 0.15s; }
   .add-link-form-btn:hover { background: var(--وردي-غامق); }
 
-  /* CATEGORY CARD */
   .category-card { background: white; border: 1px solid var(--حدود); border-radius: 16px; overflow: hidden; transition: box-shadow 0.2s; }
   .category-card:hover { box-shadow: 0 4px 20px var(--ظل); }
   .category-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; border-bottom: 1px solid var(--حدود); background: linear-gradient(135deg, white, #FFF8FA); }
@@ -324,7 +153,6 @@
   .progress-fill { height: 100%; background: linear-gradient(90deg, var(--أخضر), #8FAD60); border-radius: 2px; transition: width 0.4s ease; }
   .progress-text { font-size: 0.75rem; color: var(--نص-فاتح); white-space: nowrap; }
 
-  /* MODAL */
   .modal-overlay { position: fixed; inset: 0; background: rgba(61,36,48,0.35); display: flex; align-items: center; justify-content: center; z-index: 200; opacity: 0; pointer-events: none; transition: opacity 0.2s; backdrop-filter: blur(4px); }
   .modal-overlay.open { opacity: 1; pointer-events: all; }
   .modal { background: white; border-radius: 20px; padding: 2rem; width: 90%; max-width: 420px; transform: translateY(20px); transition: transform 0.2s; direction: rtl; border: 1px solid var(--حدود); }
@@ -346,7 +174,6 @@
   .empty-state .empty-icon { font-size: 3rem; margin-bottom: 1rem; display: block; }
   .empty-state p { font-size: 0.95rem; }
 
-  /* FOOTER */
   footer { background: white; border-top: 1px solid var(--حدود); padding: 2.5rem 2rem; text-align: center; margin-top: auto; }
   .footer-names { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.8rem; color: var(--وردي-عميق); margin-bottom: 0.4rem; letter-spacing: 2px; }
   .footer-heart { font-size: 1rem; color: var(--وردي); margin: 0 10px; }
@@ -374,6 +201,11 @@
 </head>
 <body>
 
+<div id="loader">
+  <div class="loader-icon">🌸</div>
+  <span>جاري التحميل...</span>
+</div>
+
 <header class="site-header">
   <div class="logo">♡ <span>فهد وأنفال</span></div>
   <nav>
@@ -384,7 +216,6 @@
   </nav>
 </header>
 
-<!-- HOME -->
 <div id="home-view">
   <div class="hero">
     <span class="hero-ornament">✦ ✦ ✦</span>
@@ -422,7 +253,6 @@
   </div>
 </div>
 
-<!-- MAWASA -->
 <div id="mawasa-view" class="main-content">
   <div class="page-header">
     <div class="page-title-group"><h2>🤍 المواساة</h2><p>القوائم والروابط</p></div>
@@ -436,7 +266,6 @@
   <div id="tab-mawasa-links" class="tab-content"><div class="links-grid" id="links-mawasa"></div></div>
 </div>
 
-<!-- AQD -->
 <div id="aqd-view" class="main-content">
   <div class="page-header">
     <div class="page-title-group"><h2>💍 عقد القران</h2><p>القوائم والروابط</p></div>
@@ -450,7 +279,6 @@
   <div id="tab-aqd-links" class="tab-content"><div class="links-grid" id="links-aqd"></div></div>
 </div>
 
-<!-- KHOTBA -->
 <div id="khotba-view" class="main-content">
   <div class="page-header">
     <div class="page-title-group"><h2>🌸 الخطوبة الشعبية</h2><p>القوائم والروابط</p></div>
@@ -464,7 +292,6 @@
   <div id="tab-khotba-links" class="tab-content"><div class="links-grid" id="links-khotba"></div></div>
 </div>
 
-<!-- MODAL قائمة -->
 <div class="modal-overlay" id="modal-cat" onclick="closeModalOutside(event,'modal-cat')">
   <div class="modal">
     <h3>🌸 قائمة جديدة</h3>
@@ -479,7 +306,6 @@
   </div>
 </div>
 
-<!-- MODAL قسم روابط -->
 <div class="modal-overlay" id="modal-linksec" onclick="closeModalOutside(event,'modal-linksec')">
   <div class="modal">
     <h3>🔗 قسم روابط جديد</h3>
@@ -494,7 +320,6 @@
   </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-names">فهد <span class="footer-heart">♡</span> أنفال</div>
   <div class="footer-date">ربيع ٢٠٢٦ 🌸</div>
@@ -503,28 +328,23 @@
     <div class="footer-divider-icon">✦</div>
     <div class="footer-divider-line"></div>
   </div>
+  <div class="footer-quote">الله يتمم بالخير ويبارك لكم 🤍</div>
 </footer>
 
 <script>
-  // ── FIREBASE SETUP ──
+// ── FIREBASE SETUP ──
 firebase.initializeApp({ databaseURL: 'https://wedding-planner-46a2b-default-rtdb.firebaseio.com' });
 const db = firebase.database();
 
-  
-const STORAGE_KEY = 'wedding_planner_v4';
 const EMOJIS = ['☕','🍽️','🎂','🌸','💐','👗','👠','💄','💎','✨','🪞','📸','🎵','🎀','🕯️','🧴','💌','📋','🛍️','🎁','🚗','🏠','💍','🌹','🫧','🎊','🍬','☁️'];
 
-let data = loadData();
+let data = defaultData();
 let currentEvent = null;
 let currentTab = { mawasa: 'list', aqd: 'list', khotba: 'list' };
 let selectedEmoji = '📋';
 let selectedEmojiLink = '🔗';
 
-function loadData() {
-  try {
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch(e) {}
+function defaultData() {
   return {
     mawasa: {
       lists: [
@@ -550,12 +370,34 @@ function loadData() {
   };
 }
 
+function uid() { return Math.random().toString(36).slice(2,9); }
+
+// ── SAVE TO FIREBASE ──
 function saveData() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  db.ref('wedding').set(data).catch(e => console.error('خطأ في الحفظ:', e));
   updateHomeCounts();
 }
 
-function uid() { return Math.random().toString(36).slice(2,9); }
+// ── LOAD FROM FIREBASE ON START ──
+db.ref('wedding').once('value').then(snapshot => {
+  const val = snapshot.val();
+  if (val) {
+    data = val;
+    ['mawasa','aqd','khotba'].forEach(k => {
+      if (!data[k]) data[k] = { lists: [], links: [] };
+      if (!data[k].lists) data[k].lists = [];
+      if (!data[k].links) data[k].links = [];
+    });
+  }
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('home-view').style.display = 'block';
+  updateHomeCounts();
+}).catch(e => {
+  console.error('خطأ في التحميل:', e);
+  document.getElementById('loader').style.display = 'none';
+  document.getElementById('home-view').style.display = 'block';
+  updateHomeCounts();
+});
 
 function showPage(page) {
   document.querySelectorAll('.nav-btn').forEach((b,i) => {
@@ -588,20 +430,12 @@ function handleAddBtn(eventKey) {
   else openModalLink();
 }
 
-function renderAll(eventKey) {
-  renderGrid(eventKey);
-  renderLinks(eventKey);
-  updateHomeCounts();
-}
+function renderAll(eventKey) { renderGrid(eventKey); renderLinks(eventKey); updateHomeCounts(); }
 
-// ── CHECKLIST ──
 function renderGrid(eventKey) {
   const grid = document.getElementById('grid-' + eventKey);
   const cats = data[eventKey].lists || [];
-  if (!cats.length) {
-    grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🌸</span><p>ما في قوائم بعد — اضغطي "+ قائمة جديدة"</p></div>`;
-    return;
-  }
+  if (!cats.length) { grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🌸</span><p>ما في قوائم بعد — اضغطي "+ قائمة جديدة"</p></div>`; return; }
   grid.innerHTML = cats.map(cat => renderCategory(eventKey, cat)).join('');
 }
 
@@ -613,11 +447,8 @@ function renderCategory(eventKey, cat) {
     <div class="item-row" id="row-${item.id}">
       <div class="check-box ${item.done?'checked':''}" onclick="toggleItem('${eventKey}','${cat.id}','${item.id}')">${item.done?'✓':''}</div>
       <div style="flex:1">
-        <input class="item-text ${item.done?'done':''}" value="${escHtml(item.text)}"
-          onchange="updateItemText('${eventKey}','${cat.id}','${item.id}',this.value)" placeholder="اكتبي العنصر...">
-        <input class="item-note ${item.note?'visible':''}" value="${escHtml(item.note)}"
-          onchange="updateItemNote('${eventKey}','${cat.id}','${item.id}',this.value)"
-          placeholder="ملاحظة..." onfocus="this.classList.add('visible')">
+        <input class="item-text ${item.done?'done':''}" value="${escHtml(item.text)}" onchange="updateItemText('${eventKey}','${cat.id}','${item.id}',this.value)" placeholder="اكتبي العنصر...">
+        <input class="item-note ${item.note?'visible':''}" value="${escHtml(item.note)}" onchange="updateItemNote('${eventKey}','${cat.id}','${item.id}',this.value)" placeholder="ملاحظة..." onfocus="this.classList.add('visible')">
       </div>
       <button class="item-delete" onclick="deleteItem('${eventKey}','${cat.id}','${item.id}')">✕</button>
     </div>`).join('');
@@ -632,8 +463,7 @@ function renderCategory(eventKey, cat) {
       </div>
       <div class="items-list">${itemsHtml}
         <div class="add-item-row">
-          <input class="add-item-input" id="add-${cat.id}" placeholder="+ اضيفي عنصر..."
-            onkeydown="if(event.key==='Enter') addItem('${eventKey}','${cat.id}')">
+          <input class="add-item-input" id="add-${cat.id}" placeholder="+ اضيفي عنصر..." onkeydown="if(event.key==='Enter') addItem('${eventKey}','${cat.id}')">
           <button class="add-item-btn" onclick="addItem('${eventKey}','${cat.id}')">+</button>
         </div>
       </div>
@@ -644,14 +474,10 @@ function renderCategory(eventKey, cat) {
     </div>`;
 }
 
-// ── LINKS ──
 function renderLinks(eventKey) {
   const grid = document.getElementById('links-' + eventKey);
   const secs = data[eventKey].links || [];
-  if (!secs.length) {
-    grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🔗</span><p>ما في روابط بعد — اضغطي "+ قسم روابط"</p></div>`;
-    return;
-  }
+  if (!secs.length) { grid.innerHTML = `<div class="empty-state"><span class="empty-icon">🔗</span><p>ما في روابط بعد — اضغطي "+ قسم روابط"</p></div>`; return; }
   grid.innerHTML = secs.map(sec => renderLinkSection(eventKey, sec)).join('');
 }
 
@@ -662,25 +488,16 @@ function renderLinkSection(eventKey, sec) {
       <div class="link-card-top">
         <div class="link-card-icon">${sec.emoji}</div>
         <div class="link-card-fields">
-          <input class="link-field-name" value="${escHtml(lnk.name)}"
-            onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','name',this.value)"
-            placeholder="الاسم">
-          <input class="link-field-price" value="${escHtml(lnk.price||'')}"
-            onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','price',this.value)"
-            placeholder="السعر (مثال: 50 BHD)">
-          <input class="link-field-desc" value="${escHtml(lnk.desc||'')}"
-            onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','desc',this.value)"
-            placeholder="وصف قصير...">
+          <input class="link-field-name" value="${escHtml(lnk.name)}" onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','name',this.value)" placeholder="الاسم">
+          <input class="link-field-price" value="${escHtml(lnk.price||'')}" onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','price',this.value)" placeholder="السعر (مثال: 50 BHD)">
+          <input class="link-field-desc" value="${escHtml(lnk.desc||'')}" onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','desc',this.value)" placeholder="وصف قصير...">
         </div>
       </div>
       <div class="link-card-bottom">
-        <input class="link-field-url" value="${escHtml(lnk.url||'')}"
-          onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','url',this.value)"
-          placeholder="الرابط https://...">
+        <input class="link-field-url" value="${escHtml(lnk.url||'')}" onchange="updateLinkField('${eventKey}','${sec.id}','${lnk.id}','url',this.value)" placeholder="الرابط https://...">
         ${lnk.url ? `<a class="link-open-btn" href="${escHtml(lnk.url)}" target="_blank">↗</a>` : ''}
       </div>
     </div>`).join('');
-
   return `
     <div class="link-section-card" id="lsec-${sec.id}">
       <div class="link-section-header">
@@ -690,14 +507,12 @@ function renderLinkSection(eventKey, sec) {
         </div>
         <button class="icon-btn delete" onclick="deleteLinkSection('${eventKey}','${sec.id}')">🗑</button>
       </div>
-      <div class="link-items">
-        ${cardsHtml}
+      <div class="link-items">${cardsHtml}
         <div class="add-link-form">
           <input id="aln-${sec.id}" placeholder="الاسم *">
           <input id="alp-${sec.id}" placeholder="السعر (اختياري)">
           <input id="ald-${sec.id}" placeholder="الوصف (اختياري)">
-          <input id="alu-${sec.id}" placeholder="الرابط https://... (اختياري)" class="ltr-input"
-            onkeydown="if(event.key==='Enter') addLink('${eventKey}','${sec.id}')">
+          <input id="alu-${sec.id}" placeholder="الرابط https://... (اختياري)" class="ltr-input" onkeydown="if(event.key==='Enter') addLink('${eventKey}','${sec.id}')">
           <button class="add-link-form-btn" onclick="addLink('${eventKey}','${sec.id}')">+ إضافة</button>
         </div>
       </div>
@@ -709,7 +524,7 @@ function escHtml(s) { return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').
 function openModal(id) {
   selectedEmoji = '📋';
   document.getElementById('cat-name-input').value = '';
-  buildEmojiGrid('emoji-grid');
+  document.getElementById('emoji-grid').innerHTML = EMOJIS.map(e => `<div class="emoji-opt ${e===selectedEmoji?'selected':''}" onclick="selectEmojiCat('${e}')">${e}</div>`).join('');
   document.getElementById(id).classList.add('open');
   setTimeout(() => document.getElementById('cat-name-input').focus(), 200);
 }
@@ -717,33 +532,15 @@ function openModal(id) {
 function openModalLink() {
   selectedEmojiLink = '🔗';
   document.getElementById('linksec-name-input').value = '';
-  buildEmojiGridLink('emoji-grid-link');
+  document.getElementById('emoji-grid-link').innerHTML = EMOJIS.map(e => `<div class="emoji-opt ${e===selectedEmojiLink?'selected':''}" onclick="selectEmojiLink('${e}')">${e}</div>`).join('');
   document.getElementById('modal-linksec').classList.add('open');
   setTimeout(() => document.getElementById('linksec-name-input').focus(), 200);
 }
 
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 function closeModalOutside(e, id) { if(e.target.id === id) closeModal(id); }
-
-function buildEmojiGrid(gridId) {
-  document.getElementById(gridId).innerHTML = EMOJIS.map(e =>
-    `<div class="emoji-opt ${e===selectedEmoji?'selected':''}" onclick="selectEmojiCat('${e}')">${e}</div>`).join('');
-}
-
-function buildEmojiGridLink(gridId) {
-  document.getElementById(gridId).innerHTML = EMOJIS.map(e =>
-    `<div class="emoji-opt ${e===selectedEmojiLink?'selected':''}" onclick="selectEmojiLink('${e}')">${e}</div>`).join('');
-}
-
-function selectEmojiCat(e) {
-  selectedEmoji = e;
-  document.querySelectorAll('#emoji-grid .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
-}
-
-function selectEmojiLink(e) {
-  selectedEmojiLink = e;
-  document.querySelectorAll('#emoji-grid-link .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e));
-}
+function selectEmojiCat(e) { selectedEmoji = e; document.querySelectorAll('#emoji-grid .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e)); }
+function selectEmojiLink(e) { selectedEmojiLink = e; document.querySelectorAll('#emoji-grid-link .emoji-opt').forEach(el => el.classList.toggle('selected', el.textContent === e)); }
 
 function addCategory() {
   const name = document.getElementById('cat-name-input').value.trim();
@@ -876,9 +673,6 @@ function updateHomeCounts() {
     if (elLinks) elLinks.textContent = links.reduce((s,c) => s + c.items.length, 0) + ' رابط';
   });
 }
-
-document.getElementById('home-view').style.display = 'block';
-updateHomeCounts();
 </script>
 </body>
 </html>
