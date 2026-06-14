@@ -360,6 +360,38 @@ function saveData() {
   updateHomeCounts();
 }
 
+// ── تحويل أي array أو object من Firebase إلى array نظيف ──
+function toArray(val) {
+  if (!val) return [];
+  if (Array.isArray(val)) {
+    // array عادي — نظّف الـ null ونتأكد من items
+    return val.filter(Boolean).map(item => ({
+      ...item,
+      items: toArray(item.items)
+    }));
+  }
+  if (typeof val === 'object') {
+    // Firebase أحياناً يرجع object بـ keys أرقام بدل array
+    return Object.values(val).filter(Boolean).map(item => ({
+      ...item,
+      items: toArray(item.items)
+    }));
+  }
+  return [];
+}
+
+function normalizeData(val) {
+  const result = {};
+  ['mawasa','aqd','khotba'].forEach(k => {
+    const ev = val && val[k] ? val[k] : {};
+    result[k] = {
+      lists: toArray(ev.lists),
+      links: toArray(ev.links)
+    };
+  });
+  return result;
+}
+
 // ── REAL-TIME LISTENER - يستمع لأي تغيير من أي جهاز ──
 db.ref('wedding').on('value', snapshot => {
   const val = snapshot.val();
@@ -368,12 +400,7 @@ db.ref('wedding').on('value', snapshot => {
   if (isSaving) return;
 
   if (val) {
-    data = val;
-    ['mawasa','aqd','khotba'].forEach(k => {
-      if (!data[k]) data[k] = { lists: [], links: [] };
-      if (!data[k].lists) data[k].lists = [];
-      if (!data[k].links) data[k].links = [];
-    });
+    data = normalizeData(val);
   }
 
   // أول تحميل — أخفي اللودر
