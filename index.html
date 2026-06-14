@@ -338,49 +338,35 @@ const db = firebase.database();
 
 const EMOJIS = ['☕','🍽️','🎂','🌸','💐','👗','👠','💄','💎','✨','🪞','📸','🎵','🎀','🕯️','🧴','💌','📋','🛍️','🎁','🚗','🏠','💍','🌹','🫧','🎊','🍬','☁️'];
 
-let data = defaultData();
+let data = { mawasa: { lists: [], links: [] }, aqd: { lists: [], links: [] }, khotba: { lists: [], links: [] } };
 let currentEvent = null;
+let currentPage = 'home';
 let currentTab = { mawasa: 'list', aqd: 'list', khotba: 'list' };
 let selectedEmoji = '📋';
 let selectedEmojiLink = '🔗';
 
-function defaultData() {
-  return {
-    mawasa: {
-      lists: [
-        { id: uid(), emoji: '☕', name: 'الأكل والشرب', items: [
-          { id: uid(), text: 'قهوة عربية وهيل', note: 'أساسية', done: false },
-          { id: uid(), text: 'تمر', note: 'يُقدَّم مع القهوة', done: false },
-          { id: uid(), text: 'حلويات خفيفة', note: 'بسكويت، لقيمات، كيك', done: false },
-        ]},
-        { id: uid(), emoji: '👗', name: 'الفستان واللوك', items: [
-          { id: uid(), text: 'فستان أبيض دانتيل', note: 'جاهز أو خياطة', done: false },
-          { id: uid(), text: 'الحذاء', note: 'أبيض أو شامبين', done: false },
-        ]},
-      ],
-      links: [
-        { id: uid(), emoji: '👗', name: 'فساتين', items: [
-          { id: uid(), name: 'فستان أحمر من VIP Fashion', price: '265 BHD', desc: 'فستان طويل دانتيل أحمر', url: 'https://vipfashio1.com/ar' },
-        ]},
-        { id: uid(), emoji: '✂️', name: 'صالونات الشعر', items: [] },
-      ]
-    },
-    aqd: { lists: [], links: [] },
-    khotba: { lists: [], links: [] }
-  };
-}
+// ── مفتاح لمنع إعادة الرسم أثناء الكتابة ──
+// نحتفظ بـ "focused element" عشان ما نعيد رسم الصفحة وأنتِ تكتبين
+let isSaving = false;
 
 function uid() { return Math.random().toString(36).slice(2,9); }
 
 // ── SAVE TO FIREBASE ──
 function saveData() {
-  db.ref('wedding').set(data).catch(e => console.error('خطأ في الحفظ:', e));
+  isSaving = true;
+  db.ref('wedding').set(data)
+    .then(() => { setTimeout(() => { isSaving = false; }, 500); })
+    .catch(e => { console.error('خطأ في الحفظ:', e); isSaving = false; });
   updateHomeCounts();
 }
 
-// ── LOAD FROM FIREBASE ON START ──
-db.ref('wedding').once('value').then(snapshot => {
+// ── REAL-TIME LISTENER - يستمع لأي تغيير من أي جهاز ──
+db.ref('wedding').on('value', snapshot => {
   const val = snapshot.val();
+
+  // إذا أنتِ اللي سويتِ التغيير، لا تعيدين رسم الصفحة (عشان ما تقاطعين الكتابة)
+  if (isSaving) return;
+
   if (val) {
     data = val;
     ['mawasa','aqd','khotba'].forEach(k => {
@@ -389,17 +375,28 @@ db.ref('wedding').once('value').then(snapshot => {
       if (!data[k].links) data[k].links = [];
     });
   }
+
+  // أول تحميل — أخفي اللودر
+  const loader = document.getElementById('loader');
+  if (loader && loader.style.display !== 'none') {
+    loader.style.display = 'none';
+    document.getElementById('home-view').style.display = 'block';
+  }
+
+  // حدّثي الصفحة الحالية إذا كانت مفتوحة
+  if (currentPage !== 'home') {
+    renderAll(currentPage);
+  }
+
+  updateHomeCounts();
+}, error => {
+  console.error('خطأ في الاستماع:', error);
   document.getElementById('loader').style.display = 'none';
   document.getElementById('home-view').style.display = 'block';
-  updateHomeCounts();
-}).catch(e => {
-  console.error('خطأ في التحميل:', e);
-  document.getElementById('loader').style.display = 'none';
-  document.getElementById('home-view').style.display = 'block';
-  updateHomeCounts();
 });
 
 function showPage(page) {
+  currentPage = page;
   document.querySelectorAll('.nav-btn').forEach((b,i) => {
     b.classList.toggle('active', ['home','mawasa','aqd','khotba'][i] === page);
   });
